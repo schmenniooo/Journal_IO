@@ -6,4 +6,5 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background: linear-gradient(100deg, dodgerblue, royalblue);
 }
