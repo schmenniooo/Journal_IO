@@ -3,9 +3,13 @@ function Header(){
 
     return (
 
-        <div>
-            <h1>Journal</h1>
-        </div>
+        <header className="header">
+            <h1 className="mainHeading">Journal</h1>
+            <section className="buttonContainer">
+                <button className=""></button>
+                <button className=""></button>
+            </section>
+        </header>
     )
 }
 

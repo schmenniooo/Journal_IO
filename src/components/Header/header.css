@@ -1,0 +1,21 @@
+
+.header {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.mainHeading {
+
+    font-size: 40px;
+}
+
+.buttonContainer {
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
