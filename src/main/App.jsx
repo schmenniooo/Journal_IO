@@ -1,9 +1,11 @@
 
+import Header from "../components/Header/header.jsx";
+
 function App() {
 
     return (
 
-        <h1>Journal</h1>
+        <Header />
     )
 }
 
