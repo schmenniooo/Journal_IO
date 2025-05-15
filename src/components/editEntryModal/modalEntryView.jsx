@@ -10,8 +10,8 @@ const Modal = ({ isOpen, onClose}) => {
             <div className="modal-content">
                 <button className="modal-close" onClick={onClose}>&times;</button>
                 <form className="inputForm">
-                    <input className="inputBox" type={"text"}/>
-                    <textarea className="inputBox" id={"content"}/>
+                    <input className="inputBox" type={"text"} placeholder="Title"/>
+                    <textarea className="inputBox" id={"content"} placeholder="Write now"/>
                     <button className="saveButton" type="submit">Save</button>
                 </form>
             </div>
