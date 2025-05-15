@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '../../index.css'
+import './global.css'
 import '../components/Header/header.css'
 import '../components/Footer/footer.css'
 import '../components/DefaultMain/default.css'
