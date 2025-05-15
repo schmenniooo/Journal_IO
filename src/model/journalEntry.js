@@ -1,9 +1,9 @@
 
 class JournalEntry{
 
-    constructor() {
-        this.title = "";
-        this.content = "";
+    constructor(title, description) {
+        this.title = title;
+        this.content = description;
     }
 
     getTitle(){
