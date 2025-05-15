@@ -17,6 +17,9 @@
 .optionsButton:hover {
     scale: 1.2;
 }
+.optionsButton:active {
+    transform: scale(0.95);
+}
 
 .icon {
 
