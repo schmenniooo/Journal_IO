@@ -1,12 +1,21 @@
 
+import React, {useState} from "react";
+import ModalEntryView from "../editEntryModal/modalEntryView.jsx";
 import './footer.css'
 
 function Footer() {
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openEditModal = () => {
+        setIsModalOpen(!isModalOpen);
+    }
+
     return (
 
         <footer className="footer">
-            <button className="optionsButton"><img src="/add_icon.png" className="icon" alt="Add enty"/></button>
+            <button className="optionsButton" onClick={openEditModal}><img src="/add_icon.png" className="icon" alt="Add enty"/></button>
+            <ModalEntryView isOpen={isModalOpen} onClose={openEditModal}></ModalEntryView>
         </footer>
     )
 }
