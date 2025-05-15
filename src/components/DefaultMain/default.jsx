@@ -1,4 +1,6 @@
 
+import './default.css'
+
 function DefaultMain() {
 
     return (
