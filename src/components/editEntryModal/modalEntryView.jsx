@@ -9,11 +9,11 @@ const Modal = ({ isOpen, onClose}) => {
         <div className="modal-overlay">
             <div className="modal-content">
                 <button className="modal-close" onClick={onClose}>&times;</button>
-                <section>
-                    <input type={"text"}/>
-                    <input type={"text"}/>
-                </section>
-                <button>Save</button>
+                <form className="inputForm">
+                    <input className="inputBox" type={"text"}/>
+                    <input className="inputBox" type={"text"}/>
+                </form>
+                <button className="saveButton">Save</button>
             </div>
         </div>
     );
