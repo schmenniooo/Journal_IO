@@ -11,9 +11,9 @@ const Modal = ({ isOpen, onClose}) => {
                 <button className="modal-close" onClick={onClose}>&times;</button>
                 <form className="inputForm">
                     <input className="inputBox" type={"text"}/>
-                    <input className="inputBox" type={"text"}/>
+                    <textarea className="inputBox"/>
+                    <button className="saveButton" type="submit">Save</button>
                 </form>
-                <button className="saveButton">Save</button>
             </div>
         </div>
     );
