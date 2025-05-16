@@ -14,7 +14,10 @@ function Footer() {
     return (
 
         <footer className="footer">
-            <button className="optionsButton" onClick={openEditModal}><img src="/add_icon.png" className="icon" alt="Add enty"/></button>
+            <section className="footerButtonContainer">
+                <button className="addButton" onClick={openEditModal}><img src="/add_icon.png" className="icon" alt="Add enty"/></button>
+                New Entry
+            </section>
             <ModalEntryView isOpen={isModalOpen} onClose={openEditModal}></ModalEntryView>
         </footer>
     )
