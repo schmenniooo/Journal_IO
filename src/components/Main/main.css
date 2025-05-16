@@ -1,12 +1,13 @@
 
 .mainContainer {
 
-
+    width: 100%;
+    height: 100%;
 }
 
 .journalList {
 
-
+    list-style: none;
 }
 
 .journalListItem {
@@ -15,6 +16,21 @@
 }
 
 .journalEntry {
+
+
+}
+
+.journalHeading {
+
+
+}
+
+.journalText {
+
+
+}
+
+.journalDate {
 
 
 }

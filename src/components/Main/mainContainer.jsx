@@ -9,16 +9,16 @@ function MainContainer() {
             <ul className="journalList">
                 <li className="journalListItem">
                     <section className="journalEntry">
-                        <h4>Title</h4>
-                        <p>Content</p>
-                        <label>Created</label>
+                        <h4 className="journalHeading">Title</h4>
+                        <p className="journalContent">Content</p>
+                        <label className="journalDate">Created</label>
                     </section>
                 </li>
                 <li className="journalListItem">
                     <section className="journalEntry">
-                        <h4>Title</h4>
-                        <p>Content</p>
-                        <label>Created</label>
+                        <h4 className="journalHeading">Title</h4>
+                        <p className="journalText">Content</p>
+                        <label className="journalDate">Created</label>
                     </section>
                 </li>
             </ul>
