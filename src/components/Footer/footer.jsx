@@ -1,6 +1,6 @@
 
 import React, {useState} from "react";
-import ModalEntryView from "../editEntryModal/modalEntryView.jsx";
+import ModalEntryView from "../modals/editEntryModal/modalEntryView.jsx";
 import './footer.css'
 
 function Footer() {
