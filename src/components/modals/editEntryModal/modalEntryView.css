@@ -67,3 +67,11 @@
     background-color: #0d6efd;
     padding: 3px;
 }
+.saveButton:hover {
+
+    background-color: #0b5ed7;
+}
+.saveButton:active {
+
+    transform: scale(0.95);
+}
