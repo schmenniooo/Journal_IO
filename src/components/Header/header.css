@@ -7,6 +7,8 @@
     align-items: center;
     gap: 50px;
     width: 100%;
+    background: white;
+    color: black;
 }
 
 .mainHeading {
@@ -26,5 +28,6 @@
    .header {
 
        margin-top: 25px;
+       border-radius: 10px;
    }
 }
