@@ -5,6 +5,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 450px;
+    height: 350px;
+    border-radius: 20px;
+    background: white;
+    color: black;
 }
 
 .logo {
