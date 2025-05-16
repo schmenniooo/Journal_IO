@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './modalEntryView.css';
 
 const Modal = ({ isOpen, onClose, entryToEdit = null, onSave }) => {
+
     const [formData, setFormData] = useState({
         title: '',
         content: ''
