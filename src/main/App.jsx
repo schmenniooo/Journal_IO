@@ -1,6 +1,7 @@
 
 import Header from "../components/Header/header.jsx";
 import DefaultMain from "../components/DefaultMain/default.jsx";
+import MainContainer from "../components/Main/mainContainer.jsx";
 import Footer from "../components/Footer/footer.jsx";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
     return (
         <div className="app-container">
             <Header />
-            <DefaultMain />
+            <MainContainer />
             <Footer />
         </div>
     )
