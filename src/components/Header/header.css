@@ -1,33 +1,83 @@
 
 .header {
-
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    gap: 50px;
     width: 100%;
-    background: white;
-    color: black;
+    max-width: 1200px;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--card-background);
+    color: var(--text-dark);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    margin: var(--spacing-md) auto;
+    box-sizing: border-box;
 }
 
 .mainHeading {
-
-    font-size: 40px;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    letter-spacing: -0.5px;
 }
 
 .buttonContainer {
-
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: var(--spacing-md);
+}
+
+.optionsButton {
+    background: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.optionsButton:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
 }
 
 @media (max-width: 700px) {
-
    .header {
+       margin: 10px 15px;
+       padding: 12px 20px;
+   }
 
-       margin-top: 25px;
-       border-radius: 10px;
+   .mainHeading {
+       font-size: 28px;
+   }
+
+   .optionsButton {
+       width: 36px;
+       height: 36px;
+   }
+
+   .icon {
+       width: 20px;
+       height: 20px;
+   }
+}
+
+@media (max-width: 400px) {
+   .mainHeading {
+       font-size: 24px;
+   }
+
+   .buttonContainer {
+       gap: 10px;
    }
 }

@@ -15,14 +15,14 @@
 }
 
 .modal-content {
-    background-color: white;
-    padding: 25px;
-    border-radius: 12px;
+    background-color: var(--card-background);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-md);
     width: 450px;
     max-width: 90%;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-lg);
     position: relative;
-    color: #212529;
+    color: var(--text-dark);
     animation: modalFadeIn 0.3s ease;
 }
 
@@ -39,14 +39,14 @@
 
 .modal-close {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
     background: transparent;
     border: none;
     font-size: 24px;
     cursor: pointer;
     padding: 5px;
-    color: #6c757d;
+    color: var(--text-light);
     transition: color 0.2s;
 }
 
@@ -55,36 +55,36 @@
 }
 
 .modal-title {
-    margin: 0 0 20px 0;
-    color: #343a40;
+    margin: 0 0 var(--spacing-lg) 0;
+    color: var(--text-dark);
     font-size: 1.5rem;
     font-weight: 600;
-    border-bottom: 1px solid #dee2e6;
-    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-sm);
 }
 
 .inputForm {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: var(--spacing-md);
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: var(--spacing-xs);
 }
 
 .form-group label {
     font-weight: 500;
-    color: #495057;
+    color: var(--text-medium);
     font-size: 0.9rem;
 }
 
 .inputBox {
-    border: 1px solid #ced4da;
-    border-radius: 6px;
-    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm);
     font-size: 1rem;
     width: 100%;
     transition: border-color 0.2s, box-shadow 0.2s;
@@ -92,8 +92,8 @@
 
 .inputBox:focus {
     outline: none;
-    border-color: #86b7fe;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 0.25rem rgba(30, 136, 229, 0.25);
 }
 
 #content {
@@ -106,13 +106,13 @@
 .form-actions {
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
-    margin-top: 10px;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
 }
 
 .saveButton, .cancelButton {
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     padding: 8px 16px;
     font-weight: 500;
     transition: all 0.2s;
@@ -120,18 +120,18 @@
 }
 
 .saveButton {
-    background-color: #0d6efd;
+    background-color: var(--primary-color);
     color: white;
 }
 
 .saveButton:hover {
-    background-color: #0b5ed7;
+    background-color: var(--primary-dark);
 }
 
 .cancelButton {
-    background-color: #f8f9fa;
-    color: #212529;
-    border: 1px solid #ced4da;
+    background-color: var(--background-color);
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
 }
 
 .cancelButton:hover {
