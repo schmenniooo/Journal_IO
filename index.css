@@ -1,7 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-html, body {
+:root {
+    --primary-color: #1e88e5;
+    --primary-dark: #1976d2;
+    --primary-light: #bbdefb;
+    --text-dark: #333333;
+    --text-medium: #555555;
+    --text-light: #888888;
+    --background-color: #f5f7fa;
+    --card-background: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 15px rgba(0, 0, 0, 0.15);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+}
 
+html, body {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -9,28 +31,30 @@ html, body {
     font-family: 'Roboto', sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    background: var(--background-color);
+    color: var(--text-dark);
+    line-height: 1.5;
 }
 
-:root {
-
-    color: white;
-    background: linear-gradient(100deg, dodgerblue, royalblue);
+body {
+    background: linear-gradient(135deg, #1e88e5, #5e35b1);
+    background-attachment: fixed;
 }
 
 .app-container {
-
     height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 300px;
+    padding: 20px 0;
+    box-sizing: border-box;
 }
 
 @media (max-width: 700px) {
-
     .app-container {
-        display: grid;
+        padding: 10px 0;
+        justify-content: flex-start;
     }
 }
