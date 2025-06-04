@@ -1,9 +1,9 @@
 
 import React, { useState } from "react";
-import Header from "../components/Header/header.jsx";
-import DefaultMain from "../components/DefaultMain/default.jsx";
-import MainContainer from "../components/Main/mainContainer.jsx";
-import Footer from "../components/Footer/footer.jsx";
+import Header from "../components/header/header.jsx";
+import DefaultMain from "../components/defaultMain/default.jsx";
+import MainContainer from "../components/main/mainContainer.jsx";
+import Footer from "../components/footer/footer.jsx";
 
 function App() {
 

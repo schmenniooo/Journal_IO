@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './main.css'
+import './mainContainer.css'
 
 function MainContainer({ entries = [] }) {
 
