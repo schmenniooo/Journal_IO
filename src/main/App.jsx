@@ -23,20 +23,18 @@ function App() {
             setEntries([...entries, entry]);
         }
     };
-
-    const handleDeleteEntry = (entryId) => {
-        // Filter out the entry with the given id
-        const updatedEntries = entries.filter(entry => entry.id !== entryId);
+    const handleDeleteEntry = (entryToDelete) => {
+        const updatedEntries = entries.filter(entry => entry !== entryToDelete);
         setEntries(updatedEntries);
     };
 
     return (
         <div className="app-container">
             <Header />
-            {entries.length > 0 ? (
-                <MainContainer entries={entries} onDelete={handleDeleteEntry} />
+            {entries.length === 0 ? (
+                <DefaultMain/>
             ) : (
-                <DefaultMain />
+                <MainContainer entries={entries} onDelete={handleDeleteEntry} />
             )}
             <Footer onSaveEntry={handleSaveEntry} />
         </div>

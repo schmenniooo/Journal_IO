@@ -14,7 +14,7 @@ function MainContainer({ entries = [], onDelete }) {
                             <p className="journalText">{entry.content}</p>
                             <button className="deleteButton" onClick={(e) => {
                                     e.stopPropagation();
-                                    onDelete(entry.id);
+                                    onDelete(entry);
                                 }}
                             >
                                 <img className="deleteIcon" src="/close_icon.png" alt="close"/>
