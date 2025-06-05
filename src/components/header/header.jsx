@@ -8,8 +8,8 @@ function Header(){
         <header className="header">
             <h1 className="mainHeading">Journal</h1>
             <section className="buttonContainer">
-                <button className="optionsButton"><img src="/search_icon.png" className="icon" alt="search"/></button>
-                <button className="optionsButton"><img src="/options.png" className="icon" alt="options"/></button>
+                <button className="optionsButton"><img src="/icons/search_icon.png" className="icon" alt="search"/></button>
+                <button className="optionsButton"><img src="/icons/options.png" className="icon" alt="options"/></button>
             </section>
         </header>
     )

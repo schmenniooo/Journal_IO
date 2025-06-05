@@ -14,7 +14,7 @@ function MainContainer({ entries = [], onDelete }) {
                                 e.stopPropagation();
                                 onDelete(entry);
                             }}>
-                                <img className="journalActionIcon" id="delete"src="/close_icon.png" alt="close"/>
+                                <img className="journalActionIcon" id="delete" src="/icons/close_icon.png" alt="close"/>
                             </button>
                             <h3 className="journalHeading">{entry.title}</h3>
                             <p className="journalText">{entry.content}</p>
@@ -22,7 +22,7 @@ function MainContainer({ entries = [], onDelete }) {
                                 e.stopPropagation();
                                 // TODO: editEntry
                             }}>
-                                <img className="journalActionIcon" id="edit" src="/edit_icon.png" alt="edit"/>
+                                <img className="journalActionIcon" id="edit" src="/icons/edit_icon.png" alt="edit"/>
                             </button>
                             <div className="journalDate">{entry.date}</div>
                         </div>
