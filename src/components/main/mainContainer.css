@@ -78,10 +78,8 @@
     text-align: right;
 }
 
-.deleteButton {
+.journalActionButton {
     position: absolute;
-    top: 10px;
-    right: 10px;
     background: none;
     border: none;
     cursor: pointer;
@@ -93,18 +91,31 @@
     transition: background-color 0.2s;
 }
 
-.deleteButton:hover {
+.journalActionButton:hover {
+
+    cursor: pointer;
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.deleteIcon {
+.journalActionIcon {
+
     width: 16px;
     height: 16px;
     opacity: 0.6;
 }
 
-.deleteButton:hover .deleteIcon {
+.journalActionIcon:hover {
     opacity: 1;
+}
+
+#delete {
+    top: 10px;
+    right: 10px;
+}
+
+#edit {
+    bottom: 15px;
+    left: 15px;
 }
 
 @media (max-width: 900px) {
