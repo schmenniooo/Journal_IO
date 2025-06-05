@@ -24,11 +24,17 @@ function App() {
         }
     };
 
+    const handleDeleteEntry = (entryId) => {
+        // Filter out the entry with the given id
+        const updatedEntries = entries.filter(entry => entry.id !== entryId);
+        setEntries(updatedEntries);
+    };
+
     return (
         <div className="app-container">
             <Header />
             {entries.length > 0 ? (
-                <MainContainer entries={entries} />
+                <MainContainer entries={entries} onDelete={handleDeleteEntry} />
             ) : (
                 <DefaultMain />
             )}
