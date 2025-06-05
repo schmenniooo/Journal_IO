@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './entryView.css';
 
-const Modal = ({ isOpen, onClose, entryToEdit = null, onSave }) => {
+const EntryView = ({ isOpen, onClose, entryToEdit = null, onSave }) => {
 
     const [formData, setFormData] = useState({
         title: '',
@@ -108,4 +108,4 @@ const Modal = ({ isOpen, onClose, entryToEdit = null, onSave }) => {
     );
 };
 
-export default Modal;
+export default EntryView;
