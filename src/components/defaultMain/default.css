@@ -7,13 +7,13 @@
     width: 90%;
     max-width: 450px;
     min-height: 350px;
-    padding: var(--spacing-xl) var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    background: var(--card-background);
-    color: var(--text-dark);
-    box-shadow: var(--shadow-lg);
+    padding: 30px 20px;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #333333;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
     text-align: center;
-    margin: var(--spacing-lg) auto;
+    margin: 20px auto;
     box-sizing: border-box;
 }
 
@@ -34,14 +34,14 @@
 }
 
 .defaultMainContainer h2 {
-    margin: var(--spacing-lg) 0 var(--spacing-sm);
+    margin: 20px 0 10px;
     font-size: 28px;
-    color: var(--primary-color);
+    color: #1e88e5;
 }
 
 .defaultMainContainer p {
-    margin: var(--spacing-xs) 0;
-    color: var(--text-medium);
+    margin: 5px 0;
+    color: #555555;
     font-size: 16px;
 }
 

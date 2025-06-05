@@ -6,19 +6,19 @@
     align-items: center;
     width: 100%;
     max-width: 1000px;
-    padding: var(--spacing-md) var(--spacing-xl);
-    background: var(--card-background);
-    color: var(--text-dark);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    margin: var(--spacing-md) auto;
+    padding: 15px 30px;
+    background: #ffffff;
+    color: #333333;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 15px auto;
     box-sizing: border-box;
 }
 
 .mainHeading {
     font-size: 32px;
     font-weight: 700;
-    color: var(--primary-color);
+    color: #1e88e5;
     margin: 0;
     letter-spacing: -0.5px;
 }
@@ -26,7 +26,7 @@
 .buttonContainer {
     display: flex;
     flex-direction: row;
-    gap: var(--spacing-md);
+    gap: 15px;
 }
 
 .optionsButton {

@@ -6,8 +6,8 @@
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin: var(--spacing-md) auto;
-    padding: 0 var(--spacing-lg);
+    margin: 15px auto;
+    padding: 0 20px;
     box-sizing: border-box;
 }
 
@@ -16,13 +16,13 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: 10px;
     border-radius: 30px;
-    padding: 12px var(--spacing-lg);
+    padding: 12px 20px;
     color: white;
-    background: var(--primary-color);
+    background: #1e88e5;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-weight: 500;
     font-size: 16px;
 }
@@ -30,8 +30,8 @@
 .footerButtonContainer:hover {
     cursor: pointer;
     transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-    background: var(--primary-dark);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    background: #1976d2;
 }
 
 .footerButtonContainer:active {
