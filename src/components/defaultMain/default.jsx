@@ -6,7 +6,7 @@ function DefaultMain() {
     return (
 
         <div className="defaultMainContainer">
-            <img className="logo" src="/page_icon.png" alt="logo"/>
+            <img className="logo" src="/logo.png" alt="logo"/>
             <div className="divider"></div>
             <h2>Start journaling</h2>
             <p>Create your personal journal</p>
