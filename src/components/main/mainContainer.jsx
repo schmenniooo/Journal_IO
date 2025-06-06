@@ -25,9 +25,7 @@ function MainContainer({ entries = [], onDelete }) {
                             </button>
                             <h3 className="journalHeading">{entry.title}</h3>
                             <p className="journalText">{entry.content}</p>
-                            <button className="journalActionButton" id="edit" onClick={(e) => {
-                                openEditModal()
-                            }}>
+                            <button className="journalActionButton" id="edit" onClick={openEditModal()}>
                                 <img className="journalActionIcon" id="edit" src="/icons/edit_icon.png" alt="edit"/>
                             </button>
                             <div className="journalDate">{entry.date}</div>
