@@ -28,8 +28,7 @@ function Footer({ onSaveEntry }) {
             </section>
             <ModalEntryView
                 isOpen={isModalOpen} 
-                onClose={openEditModal} 
-                entryToEdit={entryToEdit}
+                onClose={openEditModal}
                 onSave={handleSave}
             />
         </footer>

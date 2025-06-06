@@ -32,7 +32,6 @@ const EntryView = ({ isOpen, onClose, entryToEdit = null, onSave }) => {
             [name]: value
         }));
     };
-
     const handleSubmit = (e) => {
         e.preventDefault();
 

@@ -1,8 +1,15 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import './mainContainer.css'
+import ModalEntryView from '../subComponents/entryView/entryView.jsx'
 
 function MainContainer({ entries = [], onDelete }) {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openEditModal = () => {
+        setIsModalOpen(!isModalOpen);
+    }
 
     return (
         <main className='mainContainer'>
@@ -19,8 +26,7 @@ function MainContainer({ entries = [], onDelete }) {
                             <h3 className="journalHeading">{entry.title}</h3>
                             <p className="journalText">{entry.content}</p>
                             <button className="journalActionButton" id="edit" onClick={(e) => {
-                                e.stopPropagation();
-                                // TODO: editEntry
+                                openEditModal()
                             }}>
                                 <img className="journalActionIcon" id="edit" src="/icons/edit_icon.png" alt="edit"/>
                             </button>
@@ -29,6 +35,7 @@ function MainContainer({ entries = [], onDelete }) {
                     </li>
                 ))}
             </ul>
+            <ModalEntryView isOpen={isModalOpen} onClose={openEditModal()}></ModalEntryView>
         </main>
     )
 }
