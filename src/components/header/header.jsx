@@ -1,5 +1,7 @@
 
 import './header.css'
+import OptionsView from '../subComponents/optionsView/optionsView.jsx'
+import SearchView from "../subComponents/searchView/searchView.jsx";
 
 function Header(){
 
