@@ -6,7 +6,6 @@ import './footer.css'
 function Footer({ onSaveEntry }) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [entryToEdit, setEntryToEdit] = useState(null);
 
     const openEditModal = () => {
         setIsModalOpen(!isModalOpen);

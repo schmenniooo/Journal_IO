@@ -34,7 +34,7 @@ function App() {
             {entries.length === 0 ? (
                 <DefaultMain/>
             ) : (
-                <MainContainer entries={entries} onDelete={handleDeleteEntry} />
+                <MainContainer entries={entries} onDelete={handleDeleteEntry} onSave={handleSaveEntry} />
             )}
             <Footer onSaveEntry={handleSaveEntry} />
         </div>
