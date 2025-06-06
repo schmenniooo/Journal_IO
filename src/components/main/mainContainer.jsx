@@ -35,7 +35,7 @@ function MainContainer({ entries = [], onDelete }) {
                     </li>
                 ))}
             </ul>
-            <ModalEntryView isOpen={isModalOpen} onClose={openEditModal()}></ModalEntryView>
+            <ModalEntryView isOpen={isModalOpen}></ModalEntryView>
         </main>
     )
 }
