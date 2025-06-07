@@ -1,12 +1,14 @@
 
 import './searchView.css'
 
-function SearchView() {
+function SearchView({ isOpen, onClose }) {
 
     const onSubmit = () => {
-
         // TODO
+        onClose();
     }
+
+    if (!isOpen) return null;
 
     return (
 
