@@ -1,5 +1,7 @@
 
+import './App.css'
 import React, { useState } from "react";
+import EntryStorageHandler from "../datasource/persistency/entryStorageHandler.js";
 import Header from "../components/header/header.jsx";
 import DefaultMain from "../components/defaultMain/default.jsx";
 import MainContainer from "../components/main/mainContainer.jsx";
