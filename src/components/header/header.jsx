@@ -1,16 +1,19 @@
 
 import './header.css'
-// TODO: import ModalOptionsView from '../subComponents/optionsView/optionsView.jsx'
+import OptionsView from '../subComponents/optionsView/optionsView.jsx'
 import SearchView from "../subComponents/searchView/searchView.jsx";
 import {useState} from "react";
 
 function Header(){
 
     const [searchViewOpen, setSearchViewOpen] = useState(false);
+    const [optionsViewOpen, setOptionsViewOpen] = useState(false);
 
-    // Switch between open and closed
     const handleSearchView = () => {
         setSearchViewOpen(!searchViewOpen);
+    }
+    const handleOptionsView = () => {
+        setOptionsViewOpen(!optionsViewOpen);
     }
 
     return (
@@ -22,6 +25,7 @@ function Header(){
                 <button className="optionsButton"><img src="/icons/options.png" className="icon" alt="options"/></button>
             </section>
             <SearchView isOpen={searchViewOpen} onClose={handleSearchView}/>
+            <OptionsView isOpen={optionsViewOpen} onClose={handleOptionsView}/>
         </header>
     )
 }
