@@ -22,7 +22,7 @@ function Header(){
             <h1 className="mainHeading">Journal</h1>
             <section className="buttonContainer">
                 <button className="optionsButton" onClick={handleSearchView}><img src="/icons/search_icon.png" className="icon" alt="search"/></button>
-                <button className="optionsButton"><img src="/icons/options.png" className="icon" alt="options"/></button>
+                <button className="optionsButton" onClick={handleOptionsView}><img src="/icons/options.png" className="icon" alt="options"/></button>
             </section>
             <SearchView isOpen={searchViewOpen} onClose={handleSearchView}/>
             <OptionsView isOpen={optionsViewOpen} onClose={handleOptionsView}/>
