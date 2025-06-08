@@ -9,7 +9,7 @@ import Footer from "../components/footer/footer.jsx";
 
 function App() {
 
-    const [entries, setEntries] = useState([]);
+    const [entries, setEntries] = useState(() => EntryStorageHandler.readEntries());
 
     const handleSaveEntry = (entry) => {
         // Check if entry already exists (for editing)
