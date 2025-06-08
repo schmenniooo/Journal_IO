@@ -30,17 +30,9 @@ function App() {
         setEntries(updatedEntries);
     };
 
-    // Save entries to localStorage on page unload
+    // Saving entries before unloading page:
     useEffect(() => {
-        const handleBeforeUnload = () => {
-            EntryStorageHandler.writeEntries(entries).then(r => console.log(r));
-        };
-
-        window.addEventListener("beforeunload", handleBeforeUnload);
-
-        return () => {
-            window.removeEventListener("beforeunload", handleBeforeUnload);
-        };
+        EntryStorageHandler.writeEntries(entries);
     }, [entries]);
 
     return (
