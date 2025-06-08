@@ -1,7 +1,7 @@
 
 class StorageHandler {
 
-    readEntries = () => {
+    async readEntries() {
         try {
             const data = localStorage.getItem("journalEntries");
             return data ? JSON.parse(data) : [];
@@ -11,7 +11,7 @@ class StorageHandler {
         }
     }
 
-    writeEntries = (entries) => {
+    async writeEntries(entries) {
         try {
             localStorage.setItem("journalEntries", JSON.stringify(entries));
         } catch (e) {
