@@ -1,6 +1,6 @@
 
 import './App.css'
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import EntryStorageHandler from "../datasource/persistency/entryStorageHandler.js";
 import Header from "../components/header/header.jsx";
 import DefaultMain from "../components/defaultMain/default.jsx";
@@ -29,6 +29,19 @@ function App() {
         const updatedEntries = entries.filter(entry => entry !== entryToDelete);
         setEntries(updatedEntries);
     };
+
+    // Save entries to localStorage on page unload
+    useEffect(() => {
+        const handleBeforeUnload = () => {
+            EntryStorageHandler.writeEntries(entries).then(r => console.log(r));
+        };
+
+        window.addEventListener("beforeunload", handleBeforeUnload);
+
+        return () => {
+            window.removeEventListener("beforeunload", handleBeforeUnload);
+        };
+    }, [entries]);
 
     return (
         <div className="app-container">
