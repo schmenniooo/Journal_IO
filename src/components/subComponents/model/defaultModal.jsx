@@ -8,7 +8,7 @@ function DefaultModal({title, children, onClose}) {
             <div className="modal">
                 <header className="modalHeader">
                     <h2 className="modalTitle">{title}</h2>
-                    <button className="closeButton" onClick={onClose()}>×</button>
+                    <button className="closeButton" onClick={onClose}>×</button>
                 </header>
                 {children}
             </div>
