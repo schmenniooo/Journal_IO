@@ -28,11 +28,10 @@ function OptionsView({ isOpen, onClose}) {
                     <button className="closeButton" onClick={onCloseClick}>×</button>
                 </div>
                 <ul className="optionsList">
-                    <li className="optionsListItem">
-                        <button className="optionsListItemAction" onClick={showDocumentation}>Documentation</button>
-                        <button className="optionsListItemAction" onClick={sortByDate}>Sort by Date</button>
-                        <button className="optionsListItemAction" onClick={showStreak}>View Streak</button>
-                    </li>
+                    <li className="optionsListItem"><button className="optionsListItemAction" onClick={showDocumentation}>Documentation</button></li>
+                    <li><button className="optionsListItemAction" onClick={sortByDate}>Sort by Date</button></li>
+                    <li><button className="optionsListItemAction" onClick={showStreak}>View Streak</button></li>
+                    <li><button className="optionsListItemAction" onClick={onCloseClick}>Close</button></li>
                 </ul>
             </div>
         </div>
