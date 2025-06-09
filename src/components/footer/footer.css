@@ -1,0 +1,85 @@
+
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 15px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.footerButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    padding: 12px 20px;
+    color: white;
+    background: #1e88e5;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.footerButtonContainer:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    background: #1976d2;
+}
+
+.footerButtonContainer:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.addButton {
+    height: 24px;
+    width: 24px;
+    background: inherit;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.addButton img {
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 700px) {
+    .footer {
+        margin-bottom: 30px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 15px;
+        background: transparent;
+        z-index: 10;
+    }
+
+    .footerButtonContainer {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .footerButtonContainer {
+        width: 100%;
+        max-width: 200px;
+    }
+}
