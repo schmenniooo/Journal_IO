@@ -24,7 +24,7 @@ function Header({ setSearchedEntry }) {
                 <button className="optionsButton" onClick={handleSearchView}><img src="/icons/search_icon.png" className="icon" alt="search"/></button>
                 <button className="optionsButton" onClick={handleOptionsView}><img src="/icons/options.png" className="icon" alt="options"/></button>
             </section>
-            <SearchView isOpen={searchViewOpen} onClose={handleSearchView} setSeachedEntry={setSearchedEntry} />
+            <SearchView isOpen={searchViewOpen} onClose={handleSearchView} setSearchedEntry={setSearchedEntry} />
             <OptionsView isOpen={optionsViewOpen} onClose={handleOptionsView}/>
         </header>
     )
