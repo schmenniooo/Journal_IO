@@ -5,7 +5,7 @@ test.describe("mainPage", async () => {
 
     test("MainPage has Title", async ({page}) => {
 
-        await page.goto("http://localhost:3000/");
+        await page.goto("/");
         await expect(page).toHaveTitle("JournalIO");
     })
 
