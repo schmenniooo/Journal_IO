@@ -10,3 +10,7 @@ Create Daily Journals
 Store them locally
 
 Great Design
+
+## ! Disclaimer !
+
+Icons by "Flaticon"
