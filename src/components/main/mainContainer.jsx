@@ -23,14 +23,12 @@ function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
         setCurrentEntry(null);
     }
 
-    // TODO: add logic to difference to highlight searchEntry
-
     return (
         <main className='mainContainer'>
             <ul className="journalList">
                 {entries.map(entry => (
                     <li key={entry.id} className="journalListItem">
-                        <div className="journalEntry">
+                        <div className="journalEntry" id={searchedEntry === entry.title ? 'highlightedEntry' : undefined}>
                             <button className="journalActionButton" id="delete" onClick={(e) => {
                                 e.stopPropagation();
                                 onDelete(entry);
