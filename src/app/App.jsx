@@ -38,11 +38,11 @@ function App() {
 
     return (
         <div className="app-container">
-            <Header />
+            <Header setSearchedEntry={setSearchedEntry} />
             {entries.length === 0 ? (
                 <DefaultMain/>
             ) : (
-                <MainContainer entries={entries} onDelete={handleDeleteEntry} onSave={handleSaveEntry} />
+                <MainContainer entries={entries} onDelete={handleDeleteEntry} onSave={handleSaveEntry} searchedEntry={searchedEntry} />
             )}
             <Footer onSaveEntry={handleSaveEntry} />
         </div>

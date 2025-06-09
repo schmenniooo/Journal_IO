@@ -1,13 +1,16 @@
 
-import './searchView.css'
+import { useState } from 'react';
+import './searchView.css';
 
-function SearchView({ isOpen, onClose }) {
+function SearchView({ isOpen, onClose, setSearchedEntry }) {
+
+    const [inputValue, setInputValue] = useState('');
 
     const onSubmit = (e) => {
         e.preventDefault();
-        // TODO
+        setSearchedEntry(inputValue);
         onClose();
-    }
+    };
 
     if (!isOpen) return null;
 
@@ -20,13 +23,18 @@ function SearchView({ isOpen, onClose }) {
                 </div>
                 <div className="searchContainer">
                     <form className="searchForm" onSubmit={onSubmit}>
-                        <input className="searchField" placeholder="Type in title" type="text"/>
+                        <input
+                            className="searchField"
+                            placeholder="Type in title"
+                            type="text"
+                            value={inputValue}
+                            onChange={(e) => setInputValue(e.target.value)}/>
                         <button type="submit" className="searchButton">Search</button>
                     </form>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default SearchView;

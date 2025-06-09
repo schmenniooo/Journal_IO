@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import './mainContainer.css'
 import ModalEntryView from '../subComponents/entryView/entryView.jsx'
 
-function MainContainer({ entries = [], onDelete, onSave }) {
+function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentEntry, setCurrentEntry] = useState(null);
@@ -22,6 +22,8 @@ function MainContainer({ entries = [], onDelete, onSave }) {
         setIsModalOpen(false);
         setCurrentEntry(null);
     }
+
+    // TODO: add logic to difference to highlight searchEntry
 
     return (
         <main className='mainContainer'>
