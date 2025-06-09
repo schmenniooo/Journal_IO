@@ -17,10 +17,10 @@ function SearchView({ isOpen, onClose, setSearchedEntry }) {
     return (
         <div className="modalOverlay">
             <div className="searchModal">
-                <div className="modalHeader">
+                <header className="modalHeader">
                     <h2 className="modalTitle">Search Entries</h2>
                     <button className="closeButton" onClick={onClose}>×</button>
-                </div>
+                </header>
                 <div className="searchContainer">
                     <form className="searchForm" onSubmit={onSubmit}>
                         <input

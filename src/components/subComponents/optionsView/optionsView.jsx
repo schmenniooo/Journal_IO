@@ -23,10 +23,10 @@ function OptionsView({ isOpen, onClose}) {
     return (
         <div className="modalOverlay">
             <div className="optionsModal">
-                <div className="modalHeader">
+                <header className="modalHeader">
                     <h2 className="modalTitle">Options</h2>
                     <button className="closeButton" onClick={onCloseClick}>×</button>
-                </div>
+                </header>
                 <ul className="optionsList">
                     <li className="optionsListItem"><button className="optionsListItemAction" onClick={showDocumentation}>Documentation</button></li>
                     <li><button className="optionsListItemAction" onClick={sortByDate}>Sort by Date</button></li>
