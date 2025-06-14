@@ -1,27 +1,66 @@
-name: Build Docker Image on Release
+name: Release on main push
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Verify release is on main branch
-        id: verify
+      - name: Set up GitHub CLI
+        uses: cli/cli@v2
+
+      - name: Fetch tags
+        run: git fetch --tags
+
+      - name: Get latest release tag
+        id: get_latest_release
         run: |
-          BRANCH=$(git branch --contains $GITHUB_SHA)
-          echo "Branches containing commit: $BRANCH"
-          if [[ "$BRANCH" != *"main"* ]]; then
-            echo "Release is not from main branch. Exiting."
-            exit 1
+          latest_tag=$(gh release list --limit 1 --json tagName --jq '.[0].tagName' || echo "")
+          echo "latest_tag=$latest_tag" >> $GITHUB_OUTPUT
+
+      - name: Get commit messages since last release
+        id: get_commits
+        run: |
+          if [ -z "${{ steps.get_latest_release.outputs.latest_tag }}" ]; then
+            commits=$(git log -10 --pretty=format:"- %s")
+          else
+            commits=$(git log ${{ steps.get_latest_release.outputs.latest_tag }}..HEAD --pretty=format:"- %s")
           fi
+          echo "commits<<EOF" >> $GITHUB_ENV
+          echo "$commits" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Set release tag
+        id: set_tag
+        run: |
+          # Tag = current date
+          TAG="release-$(date +'%Y%m%d%H%M%S')"
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Create release
+        run: |
+          gh release create ${{ steps.set_tag.outputs.tag }} \
+            --title "${{ steps.set_tag.outputs.tag }}" \
+            --notes "${{ env.commits }}"
 
       - name: Build Docker image
-        if: steps.verify.outcome == 'success'
-        run: docker build -t journaling-app:${{ github.ref_name }} .
+        run: docker build -t journaling-app:${{ steps.set_tag.outputs.tag }} .
+
+      - name: Save Docker image to tar
+        run: docker save journaling-app:${{ steps.set_tag.outputs.tag }} -o journaling-app-${{ steps.set_tag.outputs.tag }}.tar
+
+      - name: Zip source code
+        run: git archive -o journaling-app-${{ steps.set_tag.outputs.tag }}.zip HEAD
+
+      - name: Upload Docker image to release
+        run: gh release upload ${{ steps.set_tag.outputs.tag }} journaling-app-${{ steps.set_tag.outputs.tag }}.tar
+
+      - name: Upload source zip to release
+        run: gh release upload ${{ steps.set_tag.outputs.tag }} journaling-app-${{ steps.set_tag.outputs.tag }}.zip
