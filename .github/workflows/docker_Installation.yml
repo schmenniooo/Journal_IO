@@ -1,0 +1,27 @@
+name: Build Docker Image on Release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Verify release is on main branch
+        id: verify
+        run: |
+          BRANCH=$(git branch --contains $GITHUB_SHA)
+          echo "Branches containing commit: $BRANCH"
+          if [[ "$BRANCH" != *"main"* ]]; then
+            echo "Release is not from main branch. Exiting."
+            exit 1
+          fi
+
+      - name: Build Docker image
+        if: steps.verify.outcome == 'success'
+        run: docker build -t journaling-app:${{ github.ref_name }} .
