@@ -1,5 +1,5 @@
 
-FROM ubuntu:latest
+FROM fedora
 LABEL authors="ennio"
 
 ENTRYPOINT ["top", "-b"]
