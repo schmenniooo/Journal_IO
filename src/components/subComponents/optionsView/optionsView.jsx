@@ -10,9 +10,6 @@ function OptionsView({ isOpen, onClose}) {
     const sortByDate = () => {
         // TODO
     }
-    const showStreak = () => {
-        // TODO
-    }
 
     const onCloseClick = (e) => {
         e.preventDefault();
@@ -29,9 +26,6 @@ function OptionsView({ isOpen, onClose}) {
                 </li>
                 <li>
                     <button className="optionsListItemAction" onClick={sortByDate}>Sort by Date</button>
-                </li>
-                <li>
-                    <button className="optionsListItemAction" onClick={showStreak}>View Streak</button>
                 </li>
                 <li>
                     <button className="optionsListItemAction" onClick={onCloseClick}>Close</button>
