@@ -9,8 +9,8 @@ import Footer from "../components/footer/footer.jsx";
 
 function App() {
 
-    let [streak, setStreak] = useState(EntryStorageHandler.read("streak"));
-    const [entries, setEntries] = useState(() => EntryStorageHandler.read("journalEntries"));
+    let [streak, setStreak] = useState(EntryStorageHandler.readStreak);
+    const [entries, setEntries] = useState(() => EntryStorageHandler.readEntries());
     const [searchedEntry, setSearchedEntry] = useState(null);
 
     const handleSaveEntry = (entry) => {
@@ -32,16 +32,11 @@ function App() {
         setEntries(updatedEntries);
     };
 
-    // TODO:
-    const handleStreak = () => {
-        setStreak(streak++);
-    }
-
     // Saving entries before unloading page:
     useEffect(() => {
-        EntryStorageHandler.write("journalEntries", entries);
-        EntryStorageHandler.write("streak", streak);
-    }, [entries]);
+        EntryStorageHandler.writeEntries(entries);
+        EntryStorageHandler.writeStreak(streak);
+    }, [entries, streak]);
 
     return (
         <div className="app-container">
