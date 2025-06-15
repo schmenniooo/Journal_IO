@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: upload-artifact@v4
 
       - name: Set image tag
         id: set_tag
@@ -50,7 +50,7 @@ jobs:
         run: docker save $IMAGE_NAME:latest -o journaling-app-latest.tar
 
       - name: Upload Docker image tar as artifact (optional)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: journaling-app-docker-image
           path: journaling-app-latest.tar
