@@ -10,6 +10,7 @@ function StreakView({isOpen, onClose, streak}) {
         <DefaultModal title="Streak View" onClose={onClose}>
             <div className="streakContainer">
                 {/*TODO*/}
+                Coming Soon ...
             </div>
         </DefaultModal>
     )
