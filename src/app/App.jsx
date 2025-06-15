@@ -10,6 +10,7 @@ import Footer from "../components/footer/footer.jsx";
 function App() {
 
     const [entries, setEntries] = useState(() => EntryStorageHandler.readEntries());
+    let [streak, setStreak] = useState(null);
     const [searchedEntry, setSearchedEntry] = useState(null);
 
     const handleSaveEntry = (entry) => {
@@ -31,6 +32,11 @@ function App() {
         setEntries(updatedEntries);
     };
 
+    // TODO:
+    const handleStreak = () => {
+        setStreak(streak++);
+    }
+
     // Saving entries before unloading page:
     useEffect(() => {
         EntryStorageHandler.writeEntries(entries);
@@ -38,7 +44,7 @@ function App() {
 
     return (
         <div className="app-container">
-            <Header setSearchedEntry={setSearchedEntry} />
+            <Header setSearchedEntry={setSearchedEntry} streak={streak}/>
             {entries.length === 0 ? (
                 <DefaultMain/>
             ) : (

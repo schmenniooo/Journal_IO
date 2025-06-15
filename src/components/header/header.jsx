@@ -5,7 +5,7 @@ import StreakView from '../subComponents/streakView/streakView.jsx'
 import SearchView from "../subComponents/searchView/searchView.jsx";
 import {useState} from "react";
 
-function Header({ setSearchedEntry }) {
+function Header({ setSearchedEntry, streak}) {
 
     const [searchViewOpen, setSearchViewOpen] = useState(false);
     const [streakViewOpen, setStreakViewOpen] = useState(false);
@@ -31,7 +31,7 @@ function Header({ setSearchedEntry }) {
                 <button className="optionsButton" onClick={handleOptionsView}><img src="/icons/options.png" className="icon" alt="options"/></button>
             </section>
             <SearchView isOpen={searchViewOpen} onClose={handleSearchView} setSearchedEntry={setSearchedEntry} />
-            <StreakView isOpen={streakViewOpen} onClose={handleStreakView} />
+            <StreakView isOpen={streakViewOpen} onClose={handleStreakView} streak={streak} />
             <OptionsView isOpen={optionsViewOpen} onClose={handleOptionsView}/>
         </header>
     )

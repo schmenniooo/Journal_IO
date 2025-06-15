@@ -2,14 +2,14 @@
 import './streakView.css'
 import DefaultModal from "../model/defaultModal.jsx";
 
-function StreakView({isOpen, onClose}) {
+function StreakView({isOpen, onClose, streak}) {
 
     if (!isOpen) return null;
 
     return (
         <DefaultModal title="Streak View" onClose={onClose}>
-            <div>
-
+            <div className="streakContainer">
+                {/*TODO*/}
             </div>
         </DefaultModal>
     )
