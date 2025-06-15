@@ -1,66 +1,55 @@
-name: Release on main push
+name: Build and Push Docker Image
 
 on:
   push:
     branches:
       - main
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
-  release:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up GitHub CLI
-        uses: cli/cli@v2
-
-      - name: Fetch tags
-        run: git fetch --tags
-
-      - name: Get latest release tag
-        id: get_latest_release
-        run: |
-          latest_tag=$(gh release list --limit 1 --json tagName --jq '.[0].tagName' || echo "")
-          echo "latest_tag=$latest_tag" >> $GITHUB_OUTPUT
-
-      - name: Get commit messages since last release
-        id: get_commits
-        run: |
-          if [ -z "${{ steps.get_latest_release.outputs.latest_tag }}" ]; then
-            commits=$(git log -10 --pretty=format:"- %s")
-          else
-            commits=$(git log ${{ steps.get_latest_release.outputs.latest_tag }}..HEAD --pretty=format:"- %s")
-          fi
-          echo "commits<<EOF" >> $GITHUB_ENV
-          echo "$commits" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-      - name: Set release tag
+      - name: Set image tag
         id: set_tag
-        run: |
-          # Tag = current date
-          TAG="release-$(date +'%Y%m%d%H%M%S')"
-          echo "tag=$TAG" >> $GITHUB_OUTPUT
+        run: echo "tag=$(date +%s)" >> $GITHUB_OUTPUT
 
-      - name: Create release
-        run: |
-          gh release create ${{ steps.set_tag.outputs.tag }} \
-            --title "${{ steps.set_tag.outputs.tag }}" \
-            --notes "${{ env.commits }}"
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t journaling-app:${{ steps.set_tag.outputs.tag }} .
+        run: |
+          docker build \
+            --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" \
+            --label "org.opencontainers.image.description=Journal IO Application" \
+            --label "org.opencontainers.image.created=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
+            --label "org.opencontainers.image.revision=${{ github.sha }}" \
+            -t ghcr.io/${{ github.repository }}:${{ steps.set_tag.outputs.tag }} \
+            -t ghcr.io/${{ github.repository }}:latest .
 
-      - name: Save Docker image to tar
-        run: docker save journaling-app:${{ steps.set_tag.outputs.tag }} -o journaling-app-${{ steps.set_tag.outputs.tag }}.tar
+      - name: Push Docker image
+        run: |
+          docker push ghcr.io/${{ github.repository }}:${{ steps.set_tag.outputs.tag }}
+          docker push ghcr.io/${{ github.repository }}:latest
 
-      - name: Zip source code
-        run: git archive -o journaling-app-${{ steps.set_tag.outputs.tag }}.zip HEAD
+      - name: Save Docker image to tar (optional)
+        run: |
+          docker save ghcr.io/${{ github.repository }}:latest -o journaling-app-latest.tar
 
-      - name: Upload Docker image to release
-        run: gh release upload ${{ steps.set_tag.outputs.tag }} journaling-app-${{ steps.set_tag.outputs.tag }}.tar
-
-      - name: Upload source zip to release
-        run: gh release upload ${{ steps.set_tag.outputs.tag }} journaling-app-${{ steps.set_tag.outputs.tag }}.zip
+      - name: Upload Docker image tar as artifact (optional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: journaling-app-docker-image
+          path: journaling-app-latest.tar
+          retention-days: 1
