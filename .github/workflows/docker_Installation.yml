@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: upload-artifact@v4
+        uses: actions/checkout@v4
 
       - name: Set image tag
         id: set_tag
