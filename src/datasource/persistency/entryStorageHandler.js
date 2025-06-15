@@ -1,21 +1,21 @@
 
 class StorageHandler {
 
-    readEntries() {
+    read(accessor) {
         try {
-            const data = localStorage.getItem("journalEntries");
+            const data = localStorage.getItem(accessor);
             return data ? JSON.parse(data) : [];
         } catch (e) {
-            console.error("Failed to parse journal entries:", e);
+            console.error(`Failed to parse ${accessor}:`, e);
             return [];
         }
     }
 
-    writeEntries(entries) {
+    write(accessor, data) {
         try {
-            localStorage.setItem("journalEntries", JSON.stringify(entries));
+            localStorage.setItem(accessor, JSON.stringify(data));
         } catch (e) {
-            console.error("Failed to write journal entries:", e);
+            console.error(`Failed to write ${accessor}:`, e);
         }
     }
 }

@@ -9,8 +9,8 @@ import Footer from "../components/footer/footer.jsx";
 
 function App() {
 
-    const [entries, setEntries] = useState(() => EntryStorageHandler.readEntries());
     let [streak, setStreak] = useState(null);
+    const [entries, setEntries] = useState(() => EntryStorageHandler.readEntries());
     const [searchedEntry, setSearchedEntry] = useState(null);
 
     const handleSaveEntry = (entry) => {
