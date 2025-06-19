@@ -1,11 +1,12 @@
 
 import './App.css'
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import EntryStorageHandler from "../datasource/persistency/entryStorageHandler.js";
 import Header from "../components/header/header.jsx";
 import DefaultMain from "../components/defaultMain/default.jsx";
 import MainContainer from "../components/main/mainContainer.jsx";
 import Footer from "../components/footer/footer.jsx";
+import {useBeforeUnload} from "react-router-dom";
 
 function App() {
 
@@ -27,10 +28,27 @@ function App() {
             setEntries([...entries, entry]);
         }
     };
+
     const handleDeleteEntry = (entryToDelete) => {
         const updatedEntries = entries.filter(entry => entry !== entryToDelete);
         setEntries(updatedEntries);
     };
+
+    const handleStreak = () => {
+
+        entries.map((entry) => {
+            // If the entry date equals today => User created a page today streak incrementing
+            if (entry.date.equals(new Date().getTime())) {
+                setStreak(streak++);
+            }
+        });
+    };
+
+    // Handling streak before unload:
+    useBeforeUnload(() => {
+
+        handleStreak();
+    })
 
     // Saving entries before unloading page:
     useEffect(() => {
