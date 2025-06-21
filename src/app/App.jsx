@@ -1,6 +1,6 @@
 
 import './App.css'
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import EntryStorageHandler from "../datasource/persistency/entryStorageHandler.js";
 import Header from "../components/header/header.jsx";
 import DefaultMain from "../components/defaultMain/default.jsx";
@@ -37,16 +37,22 @@ function App() {
     const handleStreak = () => {
 
         entries.map((entry) => {
-            // If the entry date equals today => User created a page today streak incrementing
-            if (entry.date.equals(new Date().getTime())) {
+            const today = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            // If the entry date equals today => User created a page today => streak incrementing
+            if (entry.date.equals(today)) {
                 setStreak(streak++);
+                return true;
             }
         });
     };
 
     // Handling streak before unload:
     useBeforeUnload(() => {
-
         handleStreak();
     })
 
