@@ -6,11 +6,13 @@ function StreakView({isOpen, onClose, streak}) {
 
     if (!isOpen) return null;
 
+    // TODO: Appropriate Text for streak value
+
     return (
         <DefaultModal title="Streak View" onClose={onClose}>
             <div className="streakContainer">
-                {/*TODO*/}
-                Coming Soon ...
+                <span className="streakValue">{streak}</span>
+                <p className="streakText"></p>
             </div>
         </DefaultModal>
     )

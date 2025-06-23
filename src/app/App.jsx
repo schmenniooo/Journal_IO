@@ -56,7 +56,7 @@ function App() {
         handleStreak();
     })
 
-    // Saving entries before unloading page:
+    // Saving entries by every render:
     useEffect(() => {
         EntryStorageHandler.writeEntries(entries);
         EntryStorageHandler.writeStreak(streak);
