@@ -1,7 +1,8 @@
 
 import './App.css'
 import React, {useEffect, useState} from "react";
-import EntryStorageHandler from "../datasource/persistency/entryStorageHandler.js";
+import {useBeforeUnload} from "react-router-dom";
+import DataStorageHandler from "../datasource/persistency/dataStorageHandler.js";
 import Header from "../components/header/header.jsx";
 import DefaultMain from "../components/defaultMain/default.jsx";
 import MainContainer from "../components/main/mainContainer.jsx";
@@ -9,7 +10,11 @@ import Footer from "../components/footer/footer.jsx";
 
 function App() {
 
-    const [entries, setEntries] = useState(() => EntryStorageHandler.readEntries());
+    let [streak, setStreak] = useState(() => {
+        const value = DataStorageHandler.readStreak();
+        return value ?? 0;
+    });
+    const [entries, setEntries] = useState(() => DataStorageHandler.readEntries());
     const [searchedEntry, setSearchedEntry] = useState(null);
 
     const handleSaveEntry = (entry) => {
@@ -26,19 +31,43 @@ function App() {
             setEntries([...entries, entry]);
         }
     };
+
     const handleDeleteEntry = (entryToDelete) => {
         const updatedEntries = entries.filter(entry => entry !== entryToDelete);
         setEntries(updatedEntries);
     };
 
-    // Saving entries before unloading page:
+    const handleStreak = () => {
+
+        entries.map((entry) => {
+            const today = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            // If the entry date equals today => User created a page today => streak incrementing
+            if (entry.date.equals(today)) {
+                setStreak(streak++);
+                return true;
+            }
+        });
+    };
+
+    // Handling streak before unload:
+    useBeforeUnload(() => {
+        handleStreak();
+    })
+
+    // Saving entries by every render:
     useEffect(() => {
-        EntryStorageHandler.writeEntries(entries);
-    }, [entries]);
+        DataStorageHandler.writeEntries(entries);
+        DataStorageHandler.writeStreak(streak);
+    }, [entries, streak]);
 
     return (
         <div className="app-container">
-            <Header setSearchedEntry={setSearchedEntry} />
+            <Header setSearchedEntry={setSearchedEntry} streak={streak}/>
             {entries.length === 0 ? (
                 <DefaultMain/>
             ) : (
