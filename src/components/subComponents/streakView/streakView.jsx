@@ -10,7 +10,7 @@ function StreakView({isOpen, onClose, streak}) {
     // TODO: Appropriate Text for streak value
     useEffect(() => {
 
-        setStreakText("");
+        setStreakText("Wow, you're wonder!");
 
     }, [streak]);
 
