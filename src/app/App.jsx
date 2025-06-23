@@ -10,7 +10,10 @@ import {useBeforeUnload} from "react-router-dom";
 
 function App() {
 
-    let [streak, setStreak] = useState(EntryStorageHandler.readStreak);
+    let [streak, setStreak] = useState(() => {
+        const value = EntryStorageHandler.readStreak();
+        return value ?? 0;
+    });
     const [entries, setEntries] = useState(() => EntryStorageHandler.readEntries());
     const [searchedEntry, setSearchedEntry] = useState(null);
 
