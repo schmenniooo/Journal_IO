@@ -1,5 +1,6 @@
 
 class StorageHandler {
+
     // Generic read method to reduce redundancy
     read(key, defaultValue) {
         try {
