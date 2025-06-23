@@ -7,10 +7,24 @@ function StreakView({isOpen, onClose, streak}) {
 
     const [streakText, setStreakText] = useState("");
 
-    // TODO: Appropriate Text for streak value
+    // Selecting text on streak value:
     useEffect(() => {
 
-        setStreakText("Wow, you're wonder!");
+        const streakTexts = [
+            "Piece of cake..",
+            "Not Bad..",
+            "Pretty good..",
+            "Amazing",
+            "Wow you're wonder!"
+        ];
+
+        let streakText = "";
+
+        for (let i = 0; i < streakTexts.length; i++) {
+            streakText = streakTexts[streak];
+        }
+
+        setStreakText(streakText);
 
     }, [streak]);
 
