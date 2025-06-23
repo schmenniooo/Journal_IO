@@ -9,9 +9,6 @@ permissions:
   contents: read
   packages: write
 
-env:
-  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/journal-app
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -23,6 +20,10 @@ jobs:
       - name: Set image tag
         id: set_tag
         run: echo "tag=$(date +%s)" >> $GITHUB_OUTPUT
+
+      - name: Set full image name
+        id: vars
+        run: echo "IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/journal-app" >> $GITHUB_OUTPUT
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v2
@@ -38,16 +39,16 @@ jobs:
             --label "org.opencontainers.image.description=Journal IO Application" \
             --label "org.opencontainers.image.created=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
             --label "org.opencontainers.image.revision=${{ github.sha }}" \
-            -t $IMAGE_NAME:${{ steps.set_tag.outputs.tag }} \
-            -t $IMAGE_NAME:latest .
+            -t ${{ steps.vars.outputs.IMAGE_NAME }}:${{ steps.set_tag.outputs.tag }} \
+            -t ${{ steps.vars.outputs.IMAGE_NAME }}:latest .
 
       - name: Push Docker image
         run: |
-          docker push $IMAGE_NAME:${{ steps.set_tag.outputs.tag }}
-          docker push $IMAGE_NAME:latest
+          docker push ${{ steps.vars.outputs.IMAGE_NAME }}:${{ steps.set_tag.outputs.tag }}
+          docker push ${{ steps.vars.outputs.IMAGE_NAME }}:latest
 
       - name: Save Docker image to tar (optional)
-        run: docker save $IMAGE_NAME:latest -o journaling-app-latest.tar
+        run: docker save ${{ steps.vars.outputs.IMAGE_NAME }}:latest -o journaling-app-latest.tar
 
       - name: Upload Docker image tar as artifact (optional)
         uses: actions/upload-artifact@v4
