@@ -22,10 +22,10 @@ class StorageHandler {
     readStreak() {
         try {
             const data = localStorage.getItem("streak");
-            return data ? JSON.parse(data) : [];
+            return data ? JSON.parse(data) : null;
         } catch (e) {
             console.error("Failed to parse streak:", e);
-            return 0;
+            return null;
         }
     }
 
