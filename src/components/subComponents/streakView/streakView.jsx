@@ -10,7 +10,7 @@ function StreakView({isOpen, onClose, streak}) {
     // TODO: Appropriate Text for streak value
     useEffect(() => {
 
-        // TODO
+        setStreakText("");
 
     }, [streak]);
 
@@ -19,6 +19,7 @@ function StreakView({isOpen, onClose, streak}) {
     return (
         <DefaultModal title="Streak View" onClose={onClose}>
             <div className="streakContainer">
+                <img className="streakFlame" src="public/icons/streak_icon.png" alt="streakFlame"/>
                 <span className="streakValue">{streak}</span>
                 <p className="streakText">{streakText}</p>
             </div>
