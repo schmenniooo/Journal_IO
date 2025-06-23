@@ -1,7 +1,7 @@
 
 import './App.css'
 import React, {useEffect, useState} from "react";
-import EntryStorageHandler from "../datasource/persistency/entryStorageHandler.js";
+import DataStorageHandler from "../datasource/persistency/dataStorageHandler.js";
 import Header from "../components/header/header.jsx";
 import DefaultMain from "../components/defaultMain/default.jsx";
 import MainContainer from "../components/main/mainContainer.jsx";
@@ -11,10 +11,10 @@ import {useBeforeUnload} from "react-router-dom";
 function App() {
 
     let [streak, setStreak] = useState(() => {
-        const value = EntryStorageHandler.readStreak();
+        const value = DataStorageHandler.readStreak();
         return value ?? 0;
     });
-    const [entries, setEntries] = useState(() => EntryStorageHandler.readEntries());
+    const [entries, setEntries] = useState(() => DataStorageHandler.readEntries());
     const [searchedEntry, setSearchedEntry] = useState(null);
 
     const handleSaveEntry = (entry) => {
@@ -61,8 +61,8 @@ function App() {
 
     // Saving entries by every render:
     useEffect(() => {
-        EntryStorageHandler.writeEntries(entries);
-        EntryStorageHandler.writeStreak(streak);
+        DataStorageHandler.writeEntries(entries);
+        DataStorageHandler.writeStreak(streak);
     }, [entries, streak]);
 
     return (
