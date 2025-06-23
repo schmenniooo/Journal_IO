@@ -4,27 +4,21 @@ import DefaultModal from "../model/defaultModal.jsx";
 import {useEffect, useState} from "react";
 
 function StreakView({isOpen, onClose, streak}) {
-
     const [streakText, setStreakText] = useState("");
 
-    // Selecting text on streak value:
+    // Selecting text based on streak value
     useEffect(() => {
-
         const streakTexts = [
             "Piece of cake..",
             "Not Bad..",
             "Pretty good..",
             "Amazing",
-            "Wow you're wonder!"
+            "Wow you're wonderful!"
         ];
 
-        let streakText = "";
-
-        for (let i = 0; i < streakTexts.length; i++) {
-            streakText = streakTexts[streak];
-        }
-
-        setStreakText(streakText);
+        // Ensure streak index is within bounds
+        const index = Math.min(Math.max(0, streak), streakTexts.length - 1);
+        setStreakText(streakTexts[index]);
 
     }, [streak]);
 
