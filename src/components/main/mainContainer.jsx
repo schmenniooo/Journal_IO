@@ -1,45 +1,49 @@
-
-import React, {useState} from 'react';
-import ModalEntryView from '../subComponents/entryView/entryView.jsx'
-import './mainContainer.css'
+import React, { useState } from 'react';
+import { useSwipeable } from 'react-swipeable';
+import ModalEntryView from '../subComponents/entryView/entryView.jsx';
+import './mainContainer.css';
 
 function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentEntry, setCurrentEntry] = useState(null);
 
+    const swipeHandlers = useSwipeable({
+        onSwipedLeft: (entry) => handleBookmark(entry),
+        delta: 50,
+        trackTouch: true,
+        trackMouse: false,
+    });
+
     const handleBookmark = (entry) => {
-        setCurrentEntry(entry);
-        const state = currentEntry.bookmarked;
-        currentEntry.bookmarked = !state;
-    }
+        entry.bookmarked = !entry.bookmarked;
+        setCurrentEntry({ ...entry }); // Force re-render
+    };
+
     const openEditModal = (entry) => {
         setCurrentEntry(entry);
         setIsModalOpen(true);
-    }
+    };
+
     const handleSave = (updatedEntry) => {
-        if (onSave) {
-            onSave(updatedEntry);
-        }
+        if (onSave) onSave(updatedEntry);
         closeModal();
-    }
+    };
+
     const closeModal = () => {
         setIsModalOpen(false);
         setCurrentEntry(null);
-    }
+    };
 
     return (
-        <main className='mainContainer'>
+        <main className="mainContainer">
             <ul className="journalList">
-                {entries.map(entry => (
+                {entries.map((entry) => (
                     <li key={entry.id} className="journalListItem">
-                        <section className="journalEntry" id={searchedEntry === entry.title ? 'highlightedEntry' : undefined}>
-                            <button className="journalActionButton" onClick={(e) => {
-                                e.stopPropagation();
-                                handleBookmark(entry);
-                            }}>
+                        <section className="journalEntry" id={searchedEntry === entry.title ? 'highlightedEntry' : undefined}{...swipeHandlers}>
+                            {entry.bookmarked && (
                                 <img className="journalActionIcon" src="/icons/bookmark_icon.png" alt="bookmark"/>
-                            </button>
+                            )}
                             <button className="journalActionButton" id="delete" onClick={(e) => {
                                 e.stopPropagation();
                                 onDelete(entry);
@@ -59,14 +63,14 @@ function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
                     </li>
                 ))}
             </ul>
-            <ModalEntryView 
-                isOpen={isModalOpen} 
-                onClose={closeModal} 
-                entryToEdit={currentEntry} 
+            <ModalEntryView
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                entryToEdit={currentEntry}
                 onSave={handleSave}
             />
         </main>
-    )
+    );
 }
 
 export default MainContainer;
