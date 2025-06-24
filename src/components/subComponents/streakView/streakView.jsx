@@ -4,6 +4,7 @@ import DefaultModal from "../model/defaultModal.jsx";
 import {useEffect, useState} from "react";
 
 function StreakView({isOpen, onClose, streak}) {
+
     const [streakText, setStreakText] = useState("");
 
     // Selecting text based on streak value
