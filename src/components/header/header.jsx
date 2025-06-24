@@ -33,7 +33,7 @@ function Header({ setSearchedEntry, streak}) {
             <section className="buttonContainer">
                 <button className="optionsButton" onClick={handleSearchView}><img src="/icons/search_icon.png" className="icon" alt="search"/></button>
                 <button className="optionsButton" onClick={handleStreakView}><img src="/icons/streak_icon.png" className="icon" alt="streak"/></button>
-                <button className="optionsButton" onClick={handleBookmarkedView}><img src="/icons/bookmark_icon.png" alt="bookmarked"/></button>
+                <button className="optionsButton" onClick={handleBookmarkedView}><img src="/icons/bookmark_icon.png" className="icon" alt="bookmarked"/></button>
                 <button className="optionsButton" onClick={handleOptionsView}><img src="/icons/options.png" className="icon" alt="options"/></button>
             </section>
             <SearchView isOpen={searchViewOpen} onClose={handleSearchView} setSearchedEntry={setSearchedEntry} />
