@@ -10,7 +10,7 @@ function BookmarkView({isOpen, onCLose}) {
 
         <DefaultModal title="Bookmarked Entries" onClose={onCLose}>
             <ul className="bookmarkList">
-
+                Coming soon...
             </ul>
         </DefaultModal>
     )

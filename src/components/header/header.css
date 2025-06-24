@@ -29,23 +29,6 @@
     gap: 15px;
 }
 
-.optionsButton {
-    background: transparent;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.optionsButton:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
 .icon {
     width: 24px;
     height: 24px;
@@ -59,11 +42,6 @@
 
     .mainHeading {
         font-size: 28px;
-    }
-
-    .optionsButton {
-        width: 36px;
-        height: 36px;
     }
 
     .icon {
