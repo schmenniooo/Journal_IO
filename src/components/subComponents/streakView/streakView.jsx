@@ -25,7 +25,7 @@ function StreakView({isOpen, onClose, streak}) {
     if (!isOpen) return null;
 
     return (
-        <DefaultModal title="Streak View" onClose={onClose}>
+        <DefaultModal title="Your Streak" onClose={onClose}>
             <div className="streakContainer">
                 <img className="streakFlame" src="/icons/streak_icon.png" alt="streakFlame"/>
                 <span className="streakValue">{streak}</span>
