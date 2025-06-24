@@ -8,6 +8,11 @@ function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentEntry, setCurrentEntry] = useState(null);
 
+    const handleBookmark = (entry) => {
+        setCurrentEntry(entry);
+        const state = currentEntry.bookmarked;
+        currentEntry.bookmarked = !state;
+    }
     const openEditModal = (entry) => {
         setCurrentEntry(entry);
         setIsModalOpen(true);
@@ -29,9 +34,9 @@ function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
                 {entries.map(entry => (
                     <li key={entry.id} className="journalListItem">
                         <section className="journalEntry" id={searchedEntry === entry.title ? 'highlightedEntry' : undefined}>
-                            <button className="journalActionButton" onClick={() => {
-
-                                // TODO: Bookmarked
+                            <button className="journalActionButton" onClick={(e) => {
+                                e.stopPropagation();
+                                handleBookmark(entry);
                             }}>
                                 <img className="journalActionIcon" src="/icons/bookmark_icon.png" alt="bookmark"/>
                             </button>
