@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { useSwipeable } from 'react-swipeable';
 import ModalEntryView from '../subComponents/entryView/entryView.jsx';
 import './mainContainer.css';
 
@@ -35,9 +34,7 @@ function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
                 {entries.map((entry) => (
                     <li key={entry.id} className="journalListItem">
                         <section className="journalEntry" id={searchedEntry === entry.title ? 'highlightedEntry' : undefined} onClick={() => handleBookmark(entry)}>
-                            {entry.bookmarked && (
-                                <img className="journalActionIcon" src="/icons/bookmark_icon.png" alt="bookmark"/>
-                            )}
+                            <img className="journalActionIcon" src="/icons/bookmark_icon.png" alt="bookmark" style={{ visibility: entry.bookmarked ? 'visible' : 'hidden' }}/>
                             <button className="journalActionButton" id="delete" onClick={(e) => {
                                 e.stopPropagation();
                                 onDelete(entry);
