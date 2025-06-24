@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useSwipeable } from 'react-swipeable';
+import React, {useState} from 'react';
+import {useSwipeable} from 'react-swipeable';
 import ModalEntryView from '../subComponents/entryView/entryView.jsx';
 import './mainContainer.css';
 
@@ -8,12 +8,15 @@ function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentEntry, setCurrentEntry] = useState(null);
 
-    const swipeHandlers = useSwipeable({
-        onSwipedLeft: (entry) => handleBookmark(entry),
-        delta: 50,
-        trackTouch: true,
-        trackMouse: false,
-    });
+    const GetSwipeHandlers = (entry) => {
+        return useSwipeable({
+            onSwipedLeft: () => handleBookmark(entry),
+            onSwipedRight: () => openEditModal(entry),
+            delta: 50,
+            trackTouch: true,
+            trackMouse: true,
+        });
+    };
 
     const handleBookmark = (entry) => {
         entry.bookmarked = !entry.bookmarked;
@@ -40,7 +43,7 @@ function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
             <ul className="journalList">
                 {entries.map((entry) => (
                     <li key={entry.id} className="journalListItem">
-                        <section className="journalEntry" id={searchedEntry === entry.title ? 'highlightedEntry' : undefined}{...swipeHandlers}>
+                        <section className="journalEntry" id={searchedEntry === entry.title ? 'highlightedEntry' : undefined} {...GetSwipeHandlers(entry)}>
                             {entry.bookmarked && (
                                 <img className="journalActionIcon" src="/icons/bookmark_icon.png" alt="bookmark"/>
                             )}
