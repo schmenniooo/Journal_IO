@@ -67,7 +67,7 @@ function App() {
 
     return (
         <div className="app-container">
-            <Header setSearchedEntry={setSearchedEntry} streak={streak} entries={entries}/>
+            <Header setSearchedEntry={setSearchedEntry} streak={streak} entries={entries.filter(entry => entry.bookmarked)}/>
             {entries.length === 0 ? (
                 <DefaultMain/>
             ) : (
