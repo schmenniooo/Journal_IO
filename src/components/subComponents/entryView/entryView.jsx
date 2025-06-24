@@ -50,7 +50,8 @@ const EntryView = ({ isOpen, onClose, entryToEdit = null, onSave }) => {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
-            })
+            }),
+            bookmarked: false
         };
 
         // Pass the entry to parent component
