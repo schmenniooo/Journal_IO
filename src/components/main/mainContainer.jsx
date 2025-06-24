@@ -9,8 +9,9 @@ function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
     const [currentEntry, setCurrentEntry] = useState(null);
 
     const handleBookmark = (entry) => {
-        entry.bookmarked = !entry.bookmarked;
-        setCurrentEntry({ ...entry }); // Force re-render
+        const updatedEntry = { ...entry, bookmarked: !entry.bookmarked };
+        if (onSave) onSave(updatedEntry);
+        setCurrentEntry(updatedEntry);
     };
 
     const openEditModal = (entry) => {
