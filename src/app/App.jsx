@@ -67,7 +67,7 @@ function App() {
 
     return (
         <div className="app-container">
-            <Header setSearchedEntry={setSearchedEntry} streak={streak}/>
+            <Header setSearchedEntry={setSearchedEntry} streak={streak} entries={entries}/>
             {entries.length === 0 ? (
                 <DefaultMain/>
             ) : (
