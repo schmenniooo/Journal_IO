@@ -28,7 +28,13 @@ function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
             <ul className="journalList">
                 {entries.map(entry => (
                     <li key={entry.id} className="journalListItem">
-                        <div className="journalEntry" id={searchedEntry === entry.title ? 'highlightedEntry' : undefined}>
+                        <section className="journalEntry" id={searchedEntry === entry.title ? 'highlightedEntry' : undefined}>
+                            <button className="journalActionButton" onClick={() => {
+
+                                // TODO: Bookmarked
+                            }}>
+                                <img className="journalActionIcon" src="/icons/bookmark_icon.png" alt="bookmark"/>
+                            </button>
                             <button className="journalActionButton" id="delete" onClick={(e) => {
                                 e.stopPropagation();
                                 onDelete(entry);
@@ -44,7 +50,7 @@ function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
                                 <img className="journalActionIcon" id="edit" src="/icons/edit_icon.png" alt="edit"/>
                             </button>
                             <div className="journalDate">{entry.date}</div>
-                        </div>
+                        </section>
                     </li>
                 ))}
             </ul>
