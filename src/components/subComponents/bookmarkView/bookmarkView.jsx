@@ -4,9 +4,10 @@ import DefaultModal from "../model/defaultModal.jsx";
 
 function BookmarkView({isOpen, onCLose, entries, setSearchedEntry}) {
 
-    const handleClickOn = () => {
-
-        //setSearchedEntry
+    const handleClickOn = (e, entry) => {
+        e.preventDefault();
+        setSearchedEntry(entry.title);
+        onCLose();
     }
 
     if (!isOpen) return null;
@@ -17,8 +18,8 @@ function BookmarkView({isOpen, onCLose, entries, setSearchedEntry}) {
             <ul className="bookmarkList">
                 {entries.length === 0 && <li className="bookmarkListItem">No bookmarks yet</li>}
                 {entries.map((entry) => (
-                    <li className="bookmarkListItem">
-                        <section className="bookmarkedEntry" onClick={() => {handleClickOn()}}>
+                    <li key={entry.id} className="bookmarkListItem">
+                        <section className="bookmarkedEntry" onClick={(event) => handleClickOn(event, entry)}>
                             <h3 className="entryTitle">{entry.title}</h3>
                             <div className="entryDate">{entry.date}</div>
                         </section>
