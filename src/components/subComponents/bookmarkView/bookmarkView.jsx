@@ -10,6 +10,7 @@ function BookmarkView({isOpen, onCLose, entries}) {
 
         <DefaultModal title="Bookmarked Entries" onClose={onCLose}>
             <ul className="bookmarkList">
+                {entries.length === 0 && <li className="bookmarkListItem">No bookmarks yet</li>}
                 {entries.map((entry) => (
                     <li className="bookmarkListItem">
                         <section className="bookmarkedEntry" onClick={() => {/*TODO:*/}}>
