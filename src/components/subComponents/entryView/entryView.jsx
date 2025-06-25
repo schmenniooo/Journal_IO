@@ -51,7 +51,7 @@ const EntryView = ({ isOpen, onClose, entryToEdit = null, onSave }) => {
                 month: 'long',
                 day: 'numeric'
             }),
-            bookmarked: false
+            bookmarked: entryToEdit?.bookmarked || false
         };
 
         // Pass the entry to a parent component
