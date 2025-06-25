@@ -1,28 +1,5 @@
 
-.optionsButton {
-
-    height: 40px;
-    width: 40px;
-    background: inherit;
-    border-color: transparent;
-    cursor: pointer;
-    outline: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-.optionsButton:hover {
-    scale: 1.2;
-}
-.optionsButton:active {
-    transform: scale(0.95);
-}
-
 .icon {
-
     height: 30px;
     width: 30px;
 }

@@ -105,14 +105,14 @@
 }
 
 .journalActionIcon {
-
     width: 16px;
     height: 16px;
-    opacity: 0.6;
+    image-rendering: crisp-edges;
+    transition: filter 0.2s ease;
 }
 
 .journalActionIcon:hover {
-    opacity: 1;
+    filter: none;
 }
 
 #delete {

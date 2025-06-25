@@ -41,7 +41,7 @@ const EntryView = ({ isOpen, onClose, entryToEdit = null, onSave }) => {
             return;
         }
 
-        // Create entry object
+        // Create an entry object
         const entry = {
             id: entryToEdit?.id || Date.now(), // Use existing ID or create new one
             title: formData.title.trim(),
@@ -50,10 +50,11 @@ const EntryView = ({ isOpen, onClose, entryToEdit = null, onSave }) => {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
-            })
+            }),
+            bookmarked: entryToEdit?.bookmarked || false
         };
 
-        // Pass the entry to parent component
+        // Pass the entry to a parent component
         if (onSave) {
             onSave(entry);
         }

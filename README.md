@@ -19,8 +19,8 @@ A beautiful journaling application inspired by Apple's Journal App. This hobby p
 
 - **React** - Frontend UI library
 - **Vite** - Build tool and development server
-- **Local Storage** - For data persistence
 - **CSS** - For styling components
+- **Local Storage** - For data persistence
 - **Playwright** - For Testing
 
 ## 📋 Prerequisites
@@ -44,8 +44,9 @@ Then access the application by opening [http://localhost:5173](http://localhost:
 1. **Create a new entry** - Click the "+" button to create a new journal entry
 2. **Edit entries** - Click on any existing entry to edit it
 3. **Delete entries** - Remove unwanted entries with the delete option
-4. **Search** - Use the search functionality to find specific entries
-5. **Track your streak** - Keep an eye on your journaling streak to stay motivated
+4. **Bookmark entries** - Bookmark entries by clicking on them
+5. **Search** - Use the search functionality to find specific entries
+6. **Track your streak** - Keep an eye on your journaling streak to stay motivated
 
 ## 📝 License
 
