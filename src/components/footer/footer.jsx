@@ -10,6 +10,7 @@ function Footer({ onSaveEntry }) {
     const openEditModal = () => {
         setIsModalOpen(!isModalOpen);
     }
+
     const handleSave = (entry) => {
         if (onSaveEntry) {
             onSaveEntry(entry);

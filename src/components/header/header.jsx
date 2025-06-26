@@ -16,12 +16,15 @@ function Header({ setSearchedEntry, streak, entries}) {
     const handleSearchView = () => {
         setSearchViewOpen(!searchViewOpen);
     }
+
     const handleStreakView = () => {
         setStreakViewOpen(!streakViewOpen);
     }
+
     const handleBookmarkedView = () => {
         setBookmarkedViewOpen(!bookmarkedViewOpen);
     }
+
     const handleOptionsView = () => {
         setOptionsViewOpen(!optionsViewOpen);
     }
