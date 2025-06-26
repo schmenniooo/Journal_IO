@@ -2,11 +2,11 @@
 import './App.css'
 import React, {useEffect, useState} from "react";
 import {useBeforeUnload} from "react-router-dom";
-import DataStorageHandler from "../datasource/persistency/dataStorageHandler.js";
-import Header from "../components/header/header.jsx";
-import DefaultMain from "../components/defaultMain/default.jsx";
-import MainContainer from "../components/main/mainContainer.jsx";
-import Footer from "../components/footer/footer.jsx";
+import DataStorageHandler from "../../datasource/persistency/dataStorageHandler.js";
+import Header from "../header/header.jsx";
+import DefaultMain from "../defaultMain/default.jsx";
+import MainContainer from "../main/mainContainer.jsx";
+import Footer from "../footer/footer.jsx";
 
 function App() {
 
