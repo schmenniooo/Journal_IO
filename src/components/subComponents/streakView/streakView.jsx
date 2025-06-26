@@ -1,4 +1,3 @@
-
 import './streakView.css'
 import DefaultModal from "../model/defaultModal.jsx";
 import {useEffect, useState} from "react";
@@ -7,8 +6,8 @@ function StreakView({isOpen, onClose, streak}) {
 
     const [streakText, setStreakText] = useState("");
 
-    // Selecting text based on streak value
-    useEffect(() => {
+    // Arrow function to determine the streak message
+    const getStreakText = (streak) => {
         const streakTexts = [
             "Piece of cake..",
             "Not Bad..",
@@ -17,10 +16,13 @@ function StreakView({isOpen, onClose, streak}) {
             "Wow you're wonderful!"
         ];
 
-        // Ensure streak index is within bounds
         const index = Math.min(Math.max(0, streak), streakTexts.length - 1);
-        setStreakText(streakTexts[index]);
+        return streakTexts[index];
+    };
 
+    // Set the streak message when streak changes
+    useEffect(() => {
+        setStreakText(getStreakText(streak));
     }, [streak]);
 
     if (!isOpen) return null;
