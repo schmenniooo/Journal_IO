@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
-import './searchView.css';
-import DefaultModal from "../model/defaultModal.jsx";
+import './SearchView.css';
+import DefaultModal from "../model/DefaultModal.jsx";
 
 function SearchView({ isOpen, onClose, setSearchedEntry }) {
 

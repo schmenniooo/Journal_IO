@@ -1,6 +1,6 @@
 
-import './optionsView.css'
-import DefaultModal from "../model/defaultModal.jsx";
+import './OptionsView.css'
+import DefaultModal from "../model/DefaultModal.jsx";
 
 function OptionsView({ isOpen, onClose}) {
 

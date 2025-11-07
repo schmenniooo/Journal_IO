@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import ModalEntryView from '../subComponents/entry/entryView.jsx';
+import ModalEntryView from '../subComponents/entry/EntryView.jsx';
 import './EntryContainer.css';
 
 function EntryContainer({ entries = [], onDelete, onSave, searchedEntry }) {

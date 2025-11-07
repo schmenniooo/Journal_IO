@@ -1,5 +1,5 @@
 
-import './defaultModal.css'
+import './DefaultModal.css'
 
 function DefaultModal({title, children, onClose}) {
 

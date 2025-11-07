@@ -1,5 +1,5 @@
-import './streakView.css'
-import DefaultModal from "../model/defaultModal.jsx";
+import './StreakView.css'
+import DefaultModal from "../model/DefaultModal.jsx";
 import {useEffect, useState} from "react";
 
 function StreakView({isOpen, onClose, streak}) {

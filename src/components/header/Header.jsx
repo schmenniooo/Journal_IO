@@ -1,10 +1,10 @@
 
 import {useState} from "react";
 import './Header.css'
-import OptionsView from '../subComponents/options/optionsView.jsx'
-import StreakView from '../subComponents/streak/streakView.jsx'
-import SearchView from "../subComponents/search/searchView.jsx";
-import BookmarkView from "../subComponents/bookmarks/bookmarkView.jsx";
+import OptionsView from '../subComponents/options/OptionsView.jsx'
+import StreakView from '../subComponents/streak/StreakView.jsx'
+import SearchView from "../subComponents/search/SearchView.jsx";
+import BookmarksView from "../subComponents/bookmarks/BookmarksView.jsx";
 
 function Header({ setSearchedEntry, streak, entries }) {
 
@@ -41,7 +41,7 @@ function Header({ setSearchedEntry, streak, entries }) {
 
             <SearchView isOpen={searchViewOpen} onClose={handleSearchView} setSearchedEntry={setSearchedEntry} />
             <StreakView isOpen={streakViewOpen} onClose={handleStreakView} streak={streak} />
-            <BookmarkView isOpen={bookmarkedViewOpen} onCLose={handleBookmarkedView} entries={entries} setSearchedEntry={setSearchedEntry}/>
+            <BookmarksView isOpen={bookmarkedViewOpen} onCLose={handleBookmarkedView} entries={entries} setSearchedEntry={setSearchedEntry}/>
             <OptionsView isOpen={optionsViewOpen} onClose={handleOptionsView}/>
         </header>
     )
