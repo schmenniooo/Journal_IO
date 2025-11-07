@@ -26,7 +26,7 @@ resource "aws_amplify_branch" "main_branch" {
 
 resource "aws_amplify_domain_association" "app_domain" {
   app_id      = aws_amplify_app.Journal_IO_App.id
-  domain_name = aws_route53_zone.domain.name
+  domain_name = aws_route53domains_domain.domain.domain_name
 
   sub_domain {
     branch_name = "main"
@@ -34,6 +34,6 @@ resource "aws_amplify_domain_association" "app_domain" {
   }
 }
 
-resource "aws_route53_zone" "domain" {
-  name = "journal.io"
+resource "aws_route53domains_domain" "domain" {
+  domain_name = "journal.io"
 }
