@@ -6,7 +6,11 @@ function StreakView({isOpen, onClose, streak}) {
 
     const [streakText, setStreakText] = useState("");
 
-    // Arrow function to determine the streak message
+    // Set the streak message when streak changes
+    useEffect(() => {
+        setStreakText(getStreakText(streak));
+    }, [streak]);
+
     const getStreakText = (streak) => {
         const streakTexts = [
             "Piece of cake..",
@@ -19,11 +23,6 @@ function StreakView({isOpen, onClose, streak}) {
         const index = Math.min(Math.max(0, streak), streakTexts.length - 1);
         return streakTexts[index];
     };
-
-    // Set the streak message when streak changes
-    useEffect(() => {
-        setStreakText(getStreakText(streak));
-    }, [streak]);
 
     if (!isOpen) return null;
 
