@@ -1,4 +1,4 @@
-name: terraform_deploy.yml
+name: terraform_deployment
 on:
   pull_request:
   push:
