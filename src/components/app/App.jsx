@@ -2,10 +2,10 @@
 import './App.css'
 import React, {useEffect, useState} from "react";
 import DataStorageHandler from "../../datasource/persistency/dataStorageHandler.js";
-import Header from "../header/header.jsx";
+import Header from "../header/Header.jsx";
 import IntroContainer from "../intro/IntroContainer.jsx";
 import MainContainer from "../main/mainContainer.jsx";
-import Footer from "../footer/footer.jsx";
+import Footer from "../footer/Footer.jsx";
 
 function App() {
 

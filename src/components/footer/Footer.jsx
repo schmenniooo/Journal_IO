@@ -1,7 +1,7 @@
 
 import React, {useState} from "react";
 import ModalEntryView from "../subComponents/entryView/entryView.jsx";
-import './footer.css'
+import './Footer.css'
 
 function Footer({ onSaveEntry }) {
 

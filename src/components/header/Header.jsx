@@ -1,6 +1,6 @@
 
 import {useState} from "react";
-import './header.css'
+import './Header.css'
 import OptionsView from '../subComponents/optionsView/optionsView.jsx'
 import StreakView from '../subComponents/streakView/streakView.jsx'
 import SearchView from "../subComponents/searchView/searchView.jsx";
@@ -31,6 +31,7 @@ function Header({ setSearchedEntry, streak, entries }) {
 
         <header className="header">
             <h1 className="mainHeading">Journal</h1>
+
             <section className="buttonContainer">
                 <button className="optionsButton" onClick={handleSearchView}><img src="/icons/search_icon.png" className="icon" alt="search"/></button>
                 <button className="optionsButton" onClick={handleStreakView}><img src="/icons/streak_icon.png" className="icon" alt="streak"/></button>
