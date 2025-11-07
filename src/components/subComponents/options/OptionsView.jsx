@@ -1,6 +1,6 @@
 
-import './optionsView.css'
-import DefaultModal from "../model/defaultModal.jsx";
+import './OptionsView.css'
+import DefaultModal from "../model/DefaultModal.jsx";
 
 function OptionsView({ isOpen, onClose}) {
 
@@ -10,10 +10,6 @@ function OptionsView({ isOpen, onClose}) {
 
     const about = () => {
         window.open("https://ennio-schmidt.netlify.app/")
-    }
-
-    const sortByDate = () => {
-        // TODO
     }
 
     const onCloseClick = (e) => {
@@ -26,16 +22,13 @@ function OptionsView({ isOpen, onClose}) {
     return (
         <DefaultModal title="Options" onClose={onClose}>
             <ul className="optionsList">
-                <li>
-                    <button className="optionsListItemAction" onClick={sortByDate}>Sort by Date</button>
-                </li>
                 <li className="optionsListItem">
                     <button className="optionsListItemAction" onClick={showDocumentation}>Documentation</button>
                 </li>
-                <li>
+                <li className="optionsListItem">
                     <button className="optionsListItemAction" onClick={about}>About</button>
                 </li>
-                <li>
+                <li className="optionsListItem">
                     <button className="optionsListItemAction" onClick={onCloseClick}>Close</button>
                 </li>
             </ul>

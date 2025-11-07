@@ -1,12 +1,12 @@
 
-import './default.css'
+import './IntroContainer.css'
 
-function DefaultMain() {
+function IntroContainer() {
 
     return (
 
         <div className="defaultMainContainer">
-            <img className="logo" src="/icons/logo.png" alt="logo"/>
+            <img className="logo" src="/img/logo.png" alt="logo"/>
             <div className="divider"></div>
             <h2>Start journaling</h2>
             <p>Create your personal journal</p>
@@ -15,4 +15,4 @@ function DefaultMain() {
     )
 }
 
-export default DefaultMain
+export default IntroContainer

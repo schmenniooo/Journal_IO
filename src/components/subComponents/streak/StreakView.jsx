@@ -1,14 +1,17 @@
-
-import './streakView.css'
-import DefaultModal from "../model/defaultModal.jsx";
+import './StreakView.css'
+import DefaultModal from "../model/DefaultModal.jsx";
 import {useEffect, useState} from "react";
 
 function StreakView({isOpen, onClose, streak}) {
 
     const [streakText, setStreakText] = useState("");
 
-    // Selecting text based on streak value
+    // Set the streak message when streak changes
     useEffect(() => {
+        setStreakText(getStreakText(streak));
+    }, [streak]);
+
+    const getStreakText = (streak) => {
         const streakTexts = [
             "Piece of cake..",
             "Not Bad..",
@@ -17,18 +20,16 @@ function StreakView({isOpen, onClose, streak}) {
             "Wow you're wonderful!"
         ];
 
-        // Ensure streak index is within bounds
         const index = Math.min(Math.max(0, streak), streakTexts.length - 1);
-        setStreakText(streakTexts[index]);
-
-    }, [streak]);
+        return streakTexts[index];
+    };
 
     if (!isOpen) return null;
 
     return (
         <DefaultModal title="Your Streak" onClose={onClose}>
             <div className="streakContainer">
-                <img className="streakFlame" src="/icons/streak_icon.png" alt="streakFlame"/>
+                <img className="streakFlame" src="/img/streak_icon.png" alt="streakFlame"/>
                 <span className="streakValue">{streak}</span>
                 <p className="streakText">{streakText}</p>
             </div>

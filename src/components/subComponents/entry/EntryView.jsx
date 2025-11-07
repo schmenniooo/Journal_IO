@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import './entryView.css';
+import './EntryView.css';
 
 const EntryView = ({ isOpen, onClose, entryToEdit = null, onSave }) => {
 

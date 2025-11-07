@@ -1,7 +1,7 @@
 
 import React, {useState} from "react";
-import ModalEntryView from "../subComponents/entryView/entryView.jsx";
-import './footer.css'
+import ModalEntryView from "../subComponents/entry/EntryView.jsx";
+import './Footer.css'
 
 function Footer({ onSaveEntry }) {
 
@@ -10,6 +10,7 @@ function Footer({ onSaveEntry }) {
     const openEditModal = () => {
         setIsModalOpen(!isModalOpen);
     }
+
     const handleSave = (entry) => {
         if (onSaveEntry) {
             onSaveEntry(entry);
@@ -21,7 +22,7 @@ function Footer({ onSaveEntry }) {
         <footer className="footer">
             <section className="footerButtonContainer" onClick={openEditModal}>
                 <button className="addButton">
-                    <img src="/icons/add_icon.png" className="icon" alt="Add entry"/>
+                    <img src="/img/add_icon.png" className="icon" alt="Add entry"/>
                 </button>
                 New Entry
             </section>

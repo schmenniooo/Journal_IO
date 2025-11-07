@@ -1,8 +1,8 @@
 
-import './bookmarkView.css'
-import DefaultModal from "../model/defaultModal.jsx";
+import './BookmarksView.css'
+import DefaultModal from "../model/DefaultModal.jsx";
 
-function BookmarkView({isOpen, onCLose, entries, setSearchedEntry}) {
+function BookmarksView({isOpen, onCLose, entries, setSearchedEntry}) {
 
     const handleClickOn = (e, entry) => {
         e.preventDefault();
@@ -30,4 +30,4 @@ function BookmarkView({isOpen, onCLose, entries, setSearchedEntry}) {
     )
 }
 
-export default BookmarkView;
+export default BookmarksView;

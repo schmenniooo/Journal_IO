@@ -1,12 +1,11 @@
 
 import './App.css'
 import React, {useEffect, useState} from "react";
-import {useBeforeUnload} from "react-router-dom";
-import DataStorageHandler from "../datasource/persistency/dataStorageHandler.js";
-import Header from "../components/header/header.jsx";
-import DefaultMain from "../components/defaultMain/default.jsx";
-import MainContainer from "../components/main/mainContainer.jsx";
-import Footer from "../components/footer/footer.jsx";
+import DataStorageHandler from "../persistency/dataStorageHandler.js";
+import Header from "../components/header/Header.jsx";
+import IntroContainer from "../components/intro/IntroContainer.jsx";
+import EntryContainer from "../components/main/EntryContainer.jsx";
+import Footer from "../components/footer/Footer.jsx";
 
 function App() {
 
@@ -16,6 +15,21 @@ function App() {
     });
     const [entries, setEntries] = useState(() => DataStorageHandler.readEntries());
     const [searchedEntry, setSearchedEntry] = useState(null);
+
+    // Handling streak before unload without react-router dependency
+    useEffect(() => {
+        const onBeforeUnload = () => {
+            handleStreak();
+        };
+        window.addEventListener('beforeunload', onBeforeUnload);
+        return () => window.removeEventListener('beforeunload', onBeforeUnload);
+    }, [entries]);
+
+    // Saving entries by every render:
+    useEffect(() => {
+        DataStorageHandler.writeEntries(entries);
+        DataStorageHandler.writeStreak(streak);
+    }, [entries, streak]);
 
     const handleSaveEntry = (entry) => {
         // Check if entry already exists (for editing)
@@ -38,40 +52,30 @@ function App() {
     };
 
     const handleStreak = () => {
-
-        entries.map((entry) => {
-            const today = new Date().toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-
+        const today = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        let increment = 0;
+        entries.forEach((entry) => {
             // If the entry date equals today => User created a page today => streak incrementing
-            if (entry.date.equals(today)) {
-                setStreak(streak++);
-                return true;
+            if (entry.date === today) {
+                increment += 1;
             }
         });
+        if (increment > 0) {
+            setStreak((prev) => prev + increment);
+        }
     };
-
-    // Handling streak before unload:
-    useBeforeUnload(() => {
-        handleStreak();
-    })
-
-    // Saving entries by every render:
-    useEffect(() => {
-        DataStorageHandler.writeEntries(entries);
-        DataStorageHandler.writeStreak(streak);
-    }, [entries, streak]);
 
     return (
         <div className="app-container">
             <Header setSearchedEntry={setSearchedEntry} streak={streak} entries={entries.filter(entry => entry.bookmarked)}/>
             {entries.length === 0 ? (
-                <DefaultMain/>
+                <IntroContainer/>
             ) : (
-                <MainContainer entries={entries} onDelete={handleDeleteEntry} onSave={handleSaveEntry} searchedEntry={searchedEntry} />
+                <EntryContainer entries={entries} onDelete={handleDeleteEntry} onSave={handleSaveEntry} searchedEntry={searchedEntry} />
             )}
             <Footer onSaveEntry={handleSaveEntry} />
         </div>
