@@ -3,7 +3,7 @@ import './App.css'
 import React, {useEffect, useState} from "react";
 import DataStorageHandler from "../../datasource/persistency/dataStorageHandler.js";
 import Header from "../header/header.jsx";
-import DefaultMain from "../defaultMain/default.jsx";
+import IntroContainer from "../intro/IntroContainer.jsx";
 import MainContainer from "../main/mainContainer.jsx";
 import Footer from "../footer/footer.jsx";
 
@@ -73,7 +73,7 @@ function App() {
         <div className="app-container">
             <Header setSearchedEntry={setSearchedEntry} streak={streak} entries={entries.filter(entry => entry.bookmarked)}/>
             {entries.length === 0 ? (
-                <DefaultMain/>
+                <IntroContainer/>
             ) : (
                 <MainContainer entries={entries} onDelete={handleDeleteEntry} onSave={handleSaveEntry} searchedEntry={searchedEntry} />
             )}

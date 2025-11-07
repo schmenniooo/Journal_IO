@@ -1,7 +1,7 @@
 
-import './default.css'
+import './IntroContainer.css'
 
-function DefaultMain() {
+function IntroContainer() {
 
     return (
 
@@ -15,4 +15,4 @@ function DefaultMain() {
     )
 }
 
-export default DefaultMain
+export default IntroContainer
