@@ -6,7 +6,7 @@ import StreakView from '../subComponents/streakView/streakView.jsx'
 import SearchView from "../subComponents/searchView/searchView.jsx";
 import BookmarkView from "../subComponents/bookmarkView/bookmarkView.jsx";
 
-function Header({ setSearchedEntry, streak, entries}) {
+function Header({ setSearchedEntry, streak}) {
 
     const [searchViewOpen, setSearchViewOpen] = useState(false);
     const [streakViewOpen, setStreakViewOpen] = useState(false);
@@ -20,11 +20,9 @@ function Header({ setSearchedEntry, streak, entries}) {
     const handleStreakView = () => {
         setStreakViewOpen(!streakViewOpen);
     }
-
     const handleBookmarkedView = () => {
         setBookmarkedViewOpen(!bookmarkedViewOpen);
     }
-
     const handleOptionsView = () => {
         setOptionsViewOpen(!optionsViewOpen);
     }
