@@ -4,10 +4,6 @@ terraform {
       source  = "hashicorp/aws"
       version = "5.99.1"
     }
-    awscc = {
-      source  = "hashicorp/awscc"
-      version = "1.43.0"
-    }
   }
 }
 
@@ -23,8 +19,9 @@ resource "aws_amplify_app" "Journal_IO_App" {
   oauth_token = var.gh_token
 }
 
-resource "aws_amplify_branch" "main" {
-
+resource "aws_amplify_branch" "main_branch" {
+  app_id = aws_amplify_app.Journal_IO_App.id
+  branch_name = "main"
 }
 
 resource "aws_amplify_domain_association" "app_domain" {
