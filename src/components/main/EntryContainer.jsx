@@ -35,12 +35,12 @@ function EntryContainer({ entries = [], onDelete, onSave, searchedEntry }) {
                 {entries.map((entry) => (
                     <li key={entry.id} className="journalListItem">
                         <section className="journalEntry" id={searchedEntry === entry.title ? 'highlightedEntry' : undefined} onClick={() => handleBookmark(entry)}>
-                            <img className="journalActionIcon" src="/icons/bookmark_icon.png" alt="bookmark" style={{ visibility: entry.bookmarked ? 'visible' : 'hidden' }}/>
+                            <img className="journalActionIcon" src="/img/bookmark_icon.png" alt="bookmark" style={{ visibility: entry.bookmarked ? 'visible' : 'hidden' }}/>
                             <button className="journalActionButton" id="delete" onClick={(e) => {
                                 e.stopPropagation();
                                 onDelete(entry);
                             }}>
-                                <img className="journalActionIcon" id="delete" src="/icons/close_icon.png" alt="close"/>
+                                <img className="journalActionIcon" id="delete" src="/img/close_icon.png" alt="close"/>
                             </button>
                             <h3 className="journalHeading">{entry.title}</h3>
                             <p className="journalText">{entry.content}</p>
@@ -48,7 +48,7 @@ function EntryContainer({ entries = [], onDelete, onSave, searchedEntry }) {
                                 e.stopPropagation();
                                 openEditModal(entry);
                             }}>
-                                <img className="journalActionIcon" id="edit" src="/icons/edit_icon.png" alt="edit"/>
+                                <img className="journalActionIcon" id="edit" src="/img/edit_icon.png" alt="edit"/>
                             </button>
                             <div className="journalDate">{entry.date}</div>
                         </section>

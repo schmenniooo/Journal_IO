@@ -22,7 +22,7 @@ function Footer({ onSaveEntry }) {
         <footer className="footer">
             <section className="footerButtonContainer" onClick={openEditModal}>
                 <button className="addButton">
-                    <img src="/icons/add_icon.png" className="icon" alt="Add entry"/>
+                    <img src="/img/add_icon.png" className="icon" alt="Add entry"/>
                 </button>
                 New Entry
             </section>

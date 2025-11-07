@@ -33,10 +33,10 @@ function Header({ setSearchedEntry, streak, entries }) {
             <h1 className="mainHeading">Journal</h1>
 
             <section className="buttonContainer">
-                <button className="optionsButton" onClick={handleSearchView}><img src="/icons/search_icon.png" className="icon" alt="search"/></button>
-                <button className="optionsButton" onClick={handleStreakView}><img src="/icons/streak_icon.png" className="icon" alt="streak"/></button>
-                <button className="optionsButton" onClick={handleBookmarkedView}><img src="/icons/bookmark_icon.png" className="icon" alt="bookmarked"/></button>
-                <button className="optionsButton" onClick={handleOptionsView}><img src="/icons/options.png" className="icon" alt="options"/></button>
+                <button className="optionsButton" onClick={handleSearchView}><img src="/img/search_icon.png" className="icon" alt="search"/></button>
+                <button className="optionsButton" onClick={handleStreakView}><img src="/img/streak_icon.png" className="icon" alt="streak"/></button>
+                <button className="optionsButton" onClick={handleBookmarkedView}><img src="/img/bookmark_icon.png" className="icon" alt="bookmarked"/></button>
+                <button className="optionsButton" onClick={handleOptionsView}><img src="/img/options_icon.png" className="icon" alt="options"/></button>
             </section>
 
             <SearchView isOpen={searchViewOpen} onClose={handleSearchView} setSearchedEntry={setSearchedEntry} />
