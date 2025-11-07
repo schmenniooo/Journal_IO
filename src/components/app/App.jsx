@@ -1,10 +1,10 @@
 
 import './App.css'
 import React, {useEffect, useState} from "react";
-import DataStorageHandler from "../../datasource/persistency/dataStorageHandler.js";
+import DataStorageHandler from "../../persistency/dataStorageHandler.js";
 import Header from "../header/Header.jsx";
 import IntroContainer from "../intro/IntroContainer.jsx";
-import MainContainer from "../main/mainContainer.jsx";
+import EntryContainer from "../main/EntryContainer.jsx";
 import Footer from "../footer/Footer.jsx";
 
 function App() {
@@ -75,7 +75,7 @@ function App() {
             {entries.length === 0 ? (
                 <IntroContainer/>
             ) : (
-                <MainContainer entries={entries} onDelete={handleDeleteEntry} onSave={handleSaveEntry} searchedEntry={searchedEntry} />
+                <EntryContainer entries={entries} onDelete={handleDeleteEntry} onSave={handleSaveEntry} searchedEntry={searchedEntry} />
             )}
             <Footer onSaveEntry={handleSaveEntry} />
         </div>

@@ -1,10 +1,10 @@
 
 import {useState} from "react";
 import './Header.css'
-import OptionsView from '../subComponents/optionsView/optionsView.jsx'
-import StreakView from '../subComponents/streakView/streakView.jsx'
-import SearchView from "../subComponents/searchView/searchView.jsx";
-import BookmarkView from "../subComponents/bookmarkView/bookmarkView.jsx";
+import OptionsView from '../subComponents/options/optionsView.jsx'
+import StreakView from '../subComponents/streak/streakView.jsx'
+import SearchView from "../subComponents/search/searchView.jsx";
+import BookmarkView from "../subComponents/bookmarks/bookmarkView.jsx";
 
 function Header({ setSearchedEntry, streak, entries }) {
 

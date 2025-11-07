@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
-import ModalEntryView from '../subComponents/entryView/entryView.jsx';
-import './mainContainer.css';
+import ModalEntryView from '../subComponents/entry/entryView.jsx';
+import './EntryContainer.css';
 
-function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
+function EntryContainer({ entries = [], onDelete, onSave, searchedEntry }) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentEntry, setCurrentEntry] = useState(null);
@@ -60,4 +60,4 @@ function MainContainer({ entries = [], onDelete, onSave, searchedEntry }) {
     );
 }
 
-export default MainContainer;
+export default EntryContainer;
