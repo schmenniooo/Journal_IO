@@ -18,7 +18,9 @@ provider "aws" {
 }
 
 resource "aws_amplify_app" "Journal_IO_App" {
-  name = ""
+  name = "journal_io_app"
+  repository = "https://github.com/schmenniooo/Journal_IO"
+  oauth_token = var.gh_token
 }
 
 resource "aws_amplify_branch" "main" {
