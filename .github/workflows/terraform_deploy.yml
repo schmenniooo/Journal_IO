@@ -32,6 +32,12 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -out=tfplan
 
+      - name: Upload Terraform Plan
+        uses: actions/upload-artifact@v3
+        with:
+          name: tfplan
+          path: tfplan
+
   deploy:
     if: github.ref == 'refs/heads/main'
     needs: build
@@ -49,5 +55,13 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Download Terraform Plan
+        uses: actions/download-artifact@v3
+        with:
+          name: tfplan
+
       - name: Terraform Apply
-        run: terraform apply tfplan -auto-approve
+        run: terraform apply -auto-approve tfplan
