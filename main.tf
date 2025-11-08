@@ -30,7 +30,7 @@ resource "aws_amplify_domain_association" "app_domain" {
 
   sub_domain {
     branch_name = "main"
-    prefix      = "main"
+    prefix      = "prod"
   }
 }
 
