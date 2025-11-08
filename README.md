@@ -4,6 +4,8 @@
 ![Vite](https://img.shields.io/badge/Vite-6.3.5-646CFF?logo=vite)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+[journal.io](https://journalio.netlify.app/)
+
 A beautiful journaling application inspired by Apple's Journal App. This hobby project allows you to create and maintain your personal journal with a clean, intuitive interface.
 
 ## ✨ Features
