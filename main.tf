@@ -36,6 +36,8 @@ resource "aws_amplify_domain_association" "app_domain" {
   }
 }
 
+// TODO: Add domain registration
+
 resource "aws_route53_zone" "domain" {
   name = "journal.io"
 }

@@ -63,6 +63,5 @@ jobs:
         with:
           name: tfplan
 
-      - name: Terraform Apply
-        # Consider to use terraform apply --auto-approve
-        run: terraform apply tfplan
+      #- name: Terraform Apply
+        #run: terraform apply tfplan --auto-approve
