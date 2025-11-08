@@ -14,7 +14,9 @@ terraform {
 provider "aws" {
   // secrets will be set by the github workflow of a specific IAM-user
   // To plan config locally configure aws cli with the appropriate credentials
-  region = "eu-central-1"
+  region     = "eu-central-1"
+  access_key = var.access_key
+  secret_key = var.secret_key
 }
 
 resource "aws_amplify_app" "Journal_IO_App" {
