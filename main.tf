@@ -4,10 +4,6 @@ terraform {
       source  = "hashicorp/aws"
       version = "5.99.1"
     }
-    awscc = {
-      source  = "hashicorp/awscc"
-      version = "1.43.0"
-    }
   }
 }
 
@@ -32,7 +28,7 @@ resource "aws_amplify_branch" "main_branch" {
 
 resource "aws_amplify_domain_association" "app_domain" {
   app_id      = aws_amplify_app.Journal_IO_App.id
-  domain_name = awscc_route53_hosted_zone.domain.name
+  domain_name = aws_route53_zone.domain.name
 
   sub_domain {
     branch_name = "main"
@@ -40,6 +36,6 @@ resource "aws_amplify_domain_association" "app_domain" {
   }
 }
 
-resource "awscc_route53_hosted_zone" "domain" {
+resource "aws_route53_zone" "domain" {
   name = "journal.io"
 }
